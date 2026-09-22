@@ -1,13 +1,13 @@
 {
   "model": "claude-sonnet-5",
-  "generatedAt": "2026-09-22T23:44:03.534Z",
+  "generatedAt": "2026-09-22T23:55:16.082Z",
   "assessments": {
     "pp-1001": {
       "triage": {
         "level": "routine",
-        "rationale": "Signs are consistent with a chronic, seasonal allergic dermatopathy without evidence of systemic illness or acute deterioration; scheduling within routine timeframes is appropriate, though sooner evaluation is reasonable given sleep disruption and secondary infection risk.atch"
+        "rationale": "Chronic, seasonal pruritus pattern with no signs of systemic illness or acute distress; consistent with allergic dermatitis requiring scheduled workup rather than immediate care."
       },
-      "clinicalSummary": "3-year-old spayed female Labrador Retriever with a seasonal (spring/summer) history of pruritus localized to the paws and ventral abdomen, with nocturnal paw licking and rusty-brown interdigital staining suggestive of chronic saliva-associated discoloration (pododermatitis). History of recurrent otitis externa last year and inconsistent flea/tick prevention raises concern for underlying atopic dermatitis with possible secondary Malassezia or bacterial pyoderma. No systemic signs (lethargy, anorexia, vomiting) reported. Leading concern is canine atopic dermatitis (environmental allergy) with secondary paw and ventral skin involvement.",
+      "clinicalSummary": "3-year-old spayed female Labrador Retriever with a history of seasonal (spring/summer) pruritus involving the paws and ventral abdomen, with nocturnal pedal licking and rust-brown interdigital staining suggestive of chronic saliva staining from licking. History of recurrent otitis externa in the past year supports an underlying atopic or allergic dermatitis process. No systemic signs reported. Leading concern is canine atopic dermatitis, with flea allergy dermatitis and secondary Malassezia/bacterial pyoderma as contributing or complicating factors.",
       "differentials": [
         {
           "condition": "Canine atopic dermatitis (environmental allergy)",
@@ -16,825 +16,788 @@
             "Seasonal recurrence (spring/summer)",
             "Pruritus localized to paws and ventral abdomen",
             "History of recurrent otitis externa",
-            "Young adult Labrador, a breed predisposed to atopy"
+            "Nocturnal licking behavior typical of allergic itch"
           ],
           "against": [
-            "No confirmed allergy testing yet",
-            "Owner-reported signs only, not exam-confirmed"
+            "Physical exam and intradermal/serum allergy testing needed to confirm; cannot rule out other pruritic causes from history alone"
           ]
         },
         {
-          "condition": "Secondary Malassezia or bacterial pododermatitis/pyoderma",
-          "likelihood": "moderate",
-          "supporting": [
-            "Rusty-brown interdigital staining (classic for chronic licking/saliva staining, often with Malassezia overgrowth)",
-            "Chronic paw licking behavior"
-          ],
-          "against": [
-            "No mention of odor, greasy texture, or visible lesions confirmed by exam"
-          ]
-        },
-        {
-          "condition": "Flea allergy dermatitis (FAD)",
+          "condition": "Flea allergy dermatitis",
           "likelihood": "moderate",
           "supporting": [
             "Outdoor access",
-            "Inconsistent flea/tick prevention (occasionally missed)",
-            "Pruritus and belly erythema (classic FAD distribution)"
+            "Inconsistent flea/tick preventative compliance ('occasionally missed')",
+            "Ventral abdominal erythema is a classic flea-bite distribution"
           ],
           "against": [
-            "Seasonal pattern more classic for environmental atopy than strictly flea-driven if prevention was mostly maintained",
-            "No mention of fleas or flea dirt observed"
+            "Currently on monthly preventative, reducing likelihood",
+            "Seasonal pattern more classic for environmental allergens than fleas alone in some regions"
           ]
         },
         {
-          "condition": "Food allergy / cutaneous adverse food reaction",
-          "likelihood": "low",
+          "condition": "Secondary Malassezia dermatitis/paw pododermatitis",
+          "likelihood": "moderate",
           "supporting": [
-            "Pruritus and paw/belly involvement can occur with food allergy",
-            "Recurrent otitis can also be seen with food allergy"
+            "Rust-brown interdigital staining is characteristic of chronic saliva staining, often with secondary yeast overgrowth",
+            "Chronic licking predisposes to secondary infection"
           ],
           "against": [
-            "Strong seasonal pattern argues against food allergy, which is typically non-seasonal",
-            "No diet change or GI signs reported"
+            "Cannot confirm without cytology; may be purely a consequence of primary allergic disease rather than a distinct differential"
+          ]
+        },
+        {
+          "condition": "Contact or irritant dermatitis (ventral abdomen)",
+          "likelihood": "low",
+          "supporting": [
+            "Redness localized to belly, an area with direct ground/lawn contact"
+          ],
+          "against": [
+            "Seasonal recurrence and paw involvement make a primary allergic process more likely than a one-time contact exposure",
+            "No mention of new bedding, cleaning products, or lawn treatments"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Complete dermatologic physical exam including paw and ventral abdomen inspection",
-          "purpose": "Characterize lesion distribution, presence of erythema, alopecia, papules, or secondary infection.",
+          "test": "Skin cytology (paw interdigital skin and ventral abdomen)",
+          "purpose": "Identify secondary bacterial or Malassezia overgrowth requiring targeted treatment.",
           "priority": "first-line"
         },
         {
-          "test": "Skin cytology (paw interdigital and abdominal skin impression smears)",
-          "purpose": "Identify secondary bacterial or Malassezia overgrowth guiding topical/systemic therapy.",
+          "test": "Physical and dermatologic examination including otoscopic exam",
+          "purpose": "Characterize lesion distribution, assess ears for recurrent otitis, and correlate with pruritus pattern.",
           "priority": "first-line"
         },
         {
-          "test": "Flea combing and visual inspection for flea dirt",
-          "purpose": "Rule out flea infestation as a primary or contributing allergen source.",
+          "test": "Flea combing / flea dirt check and review of preventative compliance",
+          "purpose": "Rule out or confirm flea infestation as a contributing or primary cause given inconsistent preventative use.",
           "priority": "first-line"
         },
         {
-          "test": "Otoscopic exam and ear cytology",
-          "purpose": "Assess for recurrent or active otitis externa consistent with atopic disease.",
-          "priority": "first-line"
-        },
-        {
-          "test": "Intradermal or serum allergy testing",
-          "purpose": "Identify specific environmental allergens if seasonal atopic dermatitis is confirmed and immunotherapy is being considered.",
+          "test": "Skin scraping",
+          "purpose": "Rule out demodicosis or other ectoparasites as a cause of pododermatitis.",
           "priority": "if indicated"
         },
         {
-          "test": "Elimination diet trial (hydrolyzed or novel protein, 8 weeks)",
-          "purpose": "Rule out concurrent food allergy contribution if response to standard atopy management is incomplete.",
+          "test": "Intradermal or serum allergen-specific IgE testing",
+          "purpose": "Identify specific environmental allergens to guide immunotherapy if atopic dermatitis is confirmed and refractory to symptomatic management.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
-      "redFlags": [
-        "No photo currently available for dermatologic assessment despite owner submission—should be requested again before or at the visit",
-        "Recurrent otitis history suggests chronic allergic skin disease requiring long-term management plan",
-        "Inconsistent flea prevention could allow flea allergy dermatitis or flea-borne disease exposure"
-      ],
-      "clientCommunication": "Thank you for the detailed description and photo attempt — it sounds like your Lab may be dealing with an itchy skin issue that tends to flare up in warmer months, which is common in dogs her age and breed. The rusty-brown color between her toes is often from saliva staining due to frequent licking, and we'll want to take a closer look to see if there's any secondary skin or yeast infection going on too. We'd like to schedule a visit soon to examine her paws, belly, and ears, and possibly run a few simple in-house tests to figure out the best treatment plan. In the meantime, please try to resubmit the belly photo if possible, and let us know if you notice any fleas, hair loss, or if her symptoms suddenly worsen.",
+      "redFlags": [],
+      "clientCommunication": "Thanks for the detailed history and photo! It sounds like your girl may be dealing with a seasonal skin sensitivity, similar to allergies in people, which can cause itchy paws and a red belly this time of year. The brownish color between her toes is likely just staining from all the licking, but we'll want to check for any skin infection that may have developed as a result. Please bring her in so we can examine her skin and paws closely, and let's also double-check her flea prevention schedule since consistent use makes a big difference. In the meantime, try to keep her from licking excessively if possible (a cone can help) until we see her.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical exam performed",
-          "Photo was submitted but not available for review",
-          "Symptom severity and lesion characteristics based solely on owner description",
-          "No prior diagnostic testing (skin cytology, allergy testing) results available"
+          "No physical examination performed",
+          "Photo of ventral abdomen submitted but not available for review",
+          "Diagnosis based solely on owner-reported history, which may be imprecise or incomplete",
+          "No information on other pruritus triggers (diet changes, new products, contact allergens) or lesion severity"
         ]
       }
     },
     "pp-1002": {
       "triage": {
         "level": "urgent",
-        "rationale": "The rapid, overnight onset of a painful, moist, pruritic lesion after swimming is classic for acute moist dermatitis (hot spot), but the concurrent head shaking raises concern for underlying otitis externa or early aural hematoma, both of which can worsen quickly and warrant examination within 24 hours rather than a benign wait-and-see approach."
+        "rationale": "Rapidly developing, painful skin lesion with head shaking warrants exam within 24–48 hours to address pain, prevent self-trauma, and rule out underlying otitis or foreign body."
       },
-      "clinicalSummary": "Six-year-old neutered male Golden Retriever, mostly outdoor-housed, presents with a peracute (overnight) painful, moist, erythematous lesion on the left cheek/submandibular region following swimming, accompanied by pruritus and head shaking. No systemic signs (fever, lethargy, anorexia) reported. Leading concern is acute moist dermatitis (pyotraumatic dermatitis) secondary to self-trauma from an underlying pruritic trigger such as otitis externa, allergic reaction, or local irritation from water exposure. The head shaking suggests possible concurrent otic involvement that should be evaluated directly.",
+      "clinicalSummary": "6-year-old neutered male Golden Retriever with acute onset of a moist, erythematous, painful facial lesion below the left ear following swimming, accompanied by head shaking and pruritus. Presentation is classic for pyotraumatic dermatitis (hot spot), but the head shaking raises concern for concurrent otitis externa or an aural/facial foreign body (e.g., grass awn) as an inciting or complicating factor. No systemic signs reported. Physical exam and otoscopy needed to characterize the lesion's depth, check ear canal, and rule out abscess or bite wound.",
       "differentials": [
         {
-          "condition": "Acute moist dermatitis (pyotraumatic dermatitis / 'hot spot')",
+          "condition": "Acute moist dermatitis (pyotraumatic dermatitis / hot spot)",
           "likelihood": "high",
           "supporting": [
             "Rapid overnight onset",
-            "Moist, erythematous, painful patch",
-            "History of swimming (moisture predisposes to maceration)",
-            "Itching/scratching reported",
-            "Pain on palpation typical of self-trauma"
+            "Moist, red, painful patch",
+            "History of swimming (moisture trapping under coat)",
+            "Self-trauma from itching/scratching"
           ],
-          "against": [
-            "Cannot confirm extent or exudate character without photo or exam"
-          ]
+          "against": []
         },
         {
-          "condition": "Otitis externa with secondary pinnal/cheek self-trauma",
+          "condition": "Otitis externa with secondary facial dermatitis",
           "likelihood": "moderate",
           "supporting": [
-            "Head shaking reported",
-            "Lesion location just below the ear",
-            "Recent swimming, a known risk factor for otitis externa"
+            "Head shaking",
+            "Location just below the ear",
+            "Recent water exposure predisposing to otitis"
           ],
           "against": [
-            "No mention of ear odor, discharge, or visible ear canal changes",
-            "Owner did not specifically report ear pain vs. cheek pain"
+            "No mention of odor or discharge from ear canal itself"
           ]
         },
         {
-          "condition": "Aural hematoma",
-          "likelihood": "low",
+          "condition": "Insect bite/sting or acute contact allergic reaction",
+          "likelihood": "moderate",
           "supporting": [
-            "Head shaking can cause pinnal trauma and hematoma formation"
+            "Acute onset",
+            "Pruritus and localized redness",
+            "Outdoor/swimming environment exposure"
           ],
           "against": [
-            "Lesion described as being on the cheek, not the pinna itself",
-            "No mention of pinnal swelling or fluctuance"
+            "No mention of focal punctum or swelling pattern typical of a sting"
           ]
         },
         {
-          "condition": "Contact irritant reaction or insect bite/sting",
+          "condition": "Bite wound or early abscess",
           "likelihood": "low",
           "supporting": [
-            "Acute onset after outdoor swimming exposure",
-            "Localized erythema and pruritus"
+            "Pain on palpation",
+            "Outdoor lifestyle with potential animal contact"
           ],
           "against": [
-            "Pain on touch and moist character are more consistent with pyotraumatic dermatitis than a simple bite reaction"
+            "No mention of puncture wounds or fluctuant swelling",
+            "Acute overnight onset less typical for abscess maturation"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Full otoscopic examination of both ear canals",
-          "purpose": "Rule out primary or concurrent otitis externa as the pruritic trigger causing self-trauma and head shaking.",
+          "test": "Otoscopic examination of left ear canal",
+          "purpose": "Rule out foreign body (e.g., grass awn), otitis externa, or ear canal trauma contributing to head shaking and facial lesion.",
           "priority": "first-line"
         },
         {
-          "test": "Impression smear cytology of the lesion",
-          "purpose": "Identify secondary bacterial or yeast overgrowth to guide topical/systemic therapy.",
+          "test": "Physical exam and careful palpation/clipping of lesion under sedation if needed",
+          "purpose": "Assess lesion depth, look for puncture wounds, foreign material, or abscess formation.",
           "priority": "first-line"
         },
         {
-          "test": "Clip and clean affected area for full visualization",
-          "purpose": "Assess true extent, depth, and margins of the lesion, which are often underestimated due to matted fur.",
+          "test": "Skin surface cytology (impression smear) of the lesion",
+          "purpose": "Identify secondary bacterial or yeast infection to guide topical/systemic therapy.",
           "priority": "first-line"
         },
         {
-          "test": "Ear canal cytology (if otitis suspected)",
-          "purpose": "Characterize any concurrent otic infection contributing to head shaking.",
+          "test": "Ear cytology (if otitis suspected on otoscopy)",
+          "purpose": "Characterize infectious component (bacteria/yeast) if ear involvement confirmed.",
           "priority": "if indicated"
         },
         {
-          "test": "Sedated palpation/pinna evaluation",
-          "purpose": "Rule out aural hematoma if the dog is too painful for awake exam.",
+          "test": "Bacterial culture and sensitivity of lesion",
+          "purpose": "Guide antibiotic choice if infection is refractory or unusually severe.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Head shaking may indicate concurrent otitis externa or early aural hematoma requiring direct otic evaluation",
-        "Marked pain on palpation limits owner's ability to assess true lesion extent, increasing risk of underestimating severity",
-        "Rapid progression overnight suggests active self-trauma that could enlarge the lesion before the visit if not addressed"
+        "Head shaking may indicate foreign body or infection in the ear canal requiring prompt removal",
+        "Risk of aural hematoma if head shaking persists untreated",
+        "Potential for rapid lesion expansion or secondary infection given self-trauma",
+        "Photo unavailable for direct visual assessment of lesion severity"
       ],
-      "clientCommunication": "Thank you for letting us know about this — it sounds like your dog has developed a sore, irritated patch on his cheek, possibly related to his swim yesterday and some scratching or head shaking since. This type of skin irritation can look alarming but often responds well to prompt treatment once we take a closer look. Because he's uncomfortable and shaking his head, we'd like to see him within the next day to check both the skin and his ears and make sure nothing else is going on. In the meantime, try to prevent him from scratching or rubbing the area further, and avoid applying any creams until we've examined him.",
+      "clientCommunication": "Thank you for letting us know about this — it sounds like it came on very quickly and is uncomfortable for him, so we'd like to see him within the next day or so rather than waiting. This kind of sore, especially after swimming, is often related to skin irritation or an ear issue, but we'll need to examine him closely (and possibly look in his ear) to figure out the best treatment and make sure nothing is caught in there. In the meantime, try to prevent him from scratching or rubbing the area if possible, and avoid applying any ointments until we've seen him. We know it's worrying to see him in pain, and we'll get him comfortable as soon as we can.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical examination performed",
-          "Photo was reported as submitted but is not available for review",
-          "Findings rely entirely on owner description, which may vary in accuracy",
-          "Cannot assess lesion depth, exudate character, or ear canal status remotely"
+          "No physical exam performed",
+          "Photo submitted but not available for review, so lesion characteristics cannot be visually confirmed",
+          "Owner-reported symptoms may be imprecise regarding lesion appearance and ear involvement",
+          "Unable to assess for foreign material, exudate character, or lesion margins without direct visualization"
         ]
       }
     },
     "pp-1003": {
       "triage": {
         "level": "urgent",
-        "rationale": "The pattern of round, scaling alopecic lesions in a newly acquired kitten with a similar lesion, plus a new pruritic annular lesion in a human contact, is highly compatible with active dermatophytosis (ringworm), a zoonotic and highly contagious condition. While not immediately life-threatening, ongoing environmental contamination and zoonotic spread warrant evaluation within 24–48 hours rather than routine scheduling."
+        "rationale": "Multiple affected animals plus a human household member with a similar lesion strongly suggests a contagious, zoonotic dermatophyte infection requiring prompt confirmation and containment."
       },
-      "clinicalSummary": "Two-year-old spayed female DSH with acute onset of round, alopecic, scaling patches localized to the face and pinnae. History includes recent introduction of a kitten with a similar lesion and a new pruritic annular skin lesion in a human household member, raising strong suspicion for dermatophytosis (e.g., Microsporum canis). No prior dermatologic history is reported, and the cat is otherwise systemically healthy per owner report. Physical exam and diagnostic confirmation are needed given the zoonotic implications.",
+      "clinicalSummary": "2-year-old spayed female DSH with recently acquired kitten presents with round, alopecic, scaling patches on the face and pinnae. Concurrent similar lesions in the newly adopted kitten and an itchy annular lesion in a human household member raise strong suspicion for dermatophytosis (e.g., Microsporum canis). Pruritus level and lesion duration are not specified by the owner. No photo is currently available for direct evaluation of lesion morphology.",
       "differentials": [
         {
-          "condition": "Dermatophytosis (ringworm)",
+          "condition": "Dermatophytosis (ringworm, likely Microsporum canis)",
           "likelihood": "high",
           "supporting": [
-            "Round, scaling, alopecic lesions on face/ears (classic distribution)",
-            "Concurrent similar lesion in newly introduced kitten",
-            "Zoonotic transmission suspected (daughter's itchy ring-shaped lesion)",
-            "Young cat, outdoor access, multi-cat household — risk factors for dermatophyte exposure"
+            "Round, alopecic, scaling patches on face/ears (classic distribution)",
+            "New kitten in household with similar lesions",
+            "Human contact (daughter) with an itchy red annular lesion, consistent with zoonotic transmission",
+            "Young age and recent introduction of a new animal, common risk factors"
           ],
           "against": [
-            "No photo currently available to confirm lesion morphology",
-            "Owner-reported findings not yet examined by a veterinarian"
+            "Cannot confirm morphology without photo or direct exam",
+            "Some bacterial or ectoparasitic conditions can mimic this presentation"
           ]
         },
         {
-          "condition": "Demodicosis (Demodex gatoi or D. cati)",
-          "likelihood": "low",
+          "condition": "Notoedric or Demodectic mange",
+          "likelihood": "moderate",
           "supporting": [
-            "Can present with facial alopecia and scaling in cats"
+            "Facial/pinnal distribution can overlap with notoedric mange",
+            "Scaling reported"
           ],
           "against": [
-            "Less classically associated with discrete round lesions",
-            "No reported pruritus in the cat itself",
-            "Zoonotic transmission to a human is not typical for feline Demodex"
+            "Multi-species/human involvement less typical for mite-only disease",
+            "No mention of intense pruritus, which is hallmark of notoedric mange"
           ]
         },
         {
-          "condition": "Bacterial folliculitis (secondary or primary)",
+          "condition": "Bacterial folliculitis/pyoderma (secondary)",
           "likelihood": "low",
           "supporting": [
-            "Scaling and alopecia can occur with folliculitis"
+            "Scaling and hair loss can occur secondary to self-trauma or other primary disease"
           ],
           "against": [
-            "Does not typically produce the classic annular pattern described",
-            "Does not explain zoonotic transmission to the daughter"
+            "Unlikely to explain simultaneous multi-animal and human lesions",
+            "No mention of pustules or malodor"
           ]
         },
         {
-          "condition": "Notoedric mange (Notoedres cati)",
+          "condition": "Allergic or contact dermatitis",
           "likelihood": "low",
           "supporting": [
-            "Can cause facial/ear alopecia and scaling",
-            "Zoonotic potential exists"
+            "Could cause localized scaling"
           ],
           "against": [
-            "Usually intensely pruritic in the cat, which is not reported here",
-            "Lesions typically start at ear margins and spread diffusely rather than as discrete round patches"
+            "Does not explain lesions in multiple animals plus a human",
+            "Distribution atypical for allergic dermatitis alone"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
           "test": "Wood's lamp examination",
-          "purpose": "Rapid screening for fluorescing hairs suggestive of Microsporum canis infection.",
+          "purpose": "Rapid, non-invasive screening for fluorescence suggestive of Microsporum canis infection.",
           "priority": "first-line"
         },
         {
-          "test": "Dermatophyte culture (DTM) with hair/skin scale sample",
-          "purpose": "Definitive identification of dermatophyte species and confirmation of active infection.",
+          "test": "Trichoscopy / direct hair and skin scraping microscopy",
+          "purpose": "Identify fungal spores/hyphae or ectoparasites directly from affected hair and skin.",
           "priority": "first-line"
         },
         {
-          "test": "Trichogram (hair pluck microscopy)",
-          "purpose": "Direct visualization of arthrospores or hyphae on hair shafts.",
+          "test": "Fungal culture (DTM) with PCR confirmation if available",
+          "purpose": "Definitive identification of dermatophyte species to guide treatment duration and public health advice.",
           "priority": "first-line"
         },
         {
-          "test": "Skin scraping (superficial and deep)",
-          "purpose": "Rule out concurrent or alternative ectoparasitic causes such as Demodex or Notoedres.",
+          "test": "Skin scraping for mites (if fungal tests negative or mixed picture)",
+          "purpose": "Rule out notoedric or demodectic mange as a concurrent or alternative cause.",
           "priority": "if indicated"
         },
         {
-          "test": "Dermatophyte PCR panel",
-          "purpose": "Faster, more sensitive confirmation of dermatophyte species if culture is inconclusive or rapid results are needed.",
+          "test": "Skin biopsy with histopathology",
+          "purpose": "Evaluate atypical or non-resolving lesions not confirmed by culture or cytology.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Suspected zoonotic transmission to a human household member (daughter with new pruritic annular lesion)",
-        "Multiple animals in the household showing similar lesions, suggesting an active contagious process",
-        "Recently introduced kitten with a similar lesion, indicating possible index case and ongoing exposure risk"
+        "Zoonotic potential: reported similar lesion in a human household member (advise consult with physician/dermatologist)",
+        "Newly introduced kitten with matching lesions suggests active intra-household transmission",
+        "Indoor/outdoor lifestyle increases exposure risk to other animals and environmental contamination",
+        "No photo available to verify lesion characteristics prior to exam"
       ],
-      "clientCommunication": "Thank you for sending in these details about your cat's skin patches. Based on what you've described — including the similar spot on your new kitten and the itchy ring on your daughter's arm — this pattern is often seen with a contagious skin condition that can spread between pets and people, so we'd like to see your cat within the next day or two to check things out properly. In the meantime, it would help to limit close contact between your cat, the kitten, and family members, and wash hands after handling either pet. We'll want to run a couple of simple in-clinic tests to get a clearer picture and guide the best treatment plan. Please also let your daughter's doctor know about her skin lesion so it can be evaluated on the human medicine side.",
+      "clientCommunication": "Thank you for the detailed update and for keeping an eye on both your cats and your daughter's skin. The pattern you're describing—round, scaly, hairless patches on your cat's face and ears, along with a similar spot on your new kitten and an itchy ring on your daughter's arm—can sometimes be caused by a contagious skin fungus that can pass between pets and people. We'd like to see your cat as soon as possible (ideally within the next day or two) so we can examine and test both cats, and we recommend your daughter's doctor take a look at her skin as well. In the meantime, try to limit close contact between the cats and family members, wash hands after handling them, and avoid sharing bedding or grooming tools. This is very treatable once we know exactly what we're dealing with, and we'll guide you through each step.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical examination has been performed",
-          "Photo was submitted but is not available for review, so lesion morphology cannot be directly assessed",
-          "Findings are based on owner-reported history only, which may be imprecise",
-          "Human lesion in the daughter has not been evaluated by a physician, so zoonotic linkage is presumptive"
+          "No photo available for direct visual assessment of lesion morphology",
+          "No physical exam performed; findings rely entirely on owner description",
+          "Owner-reported details on pruritus severity, lesion duration, and progression are limited",
+          "Human lesion described secondhand, not confirmed by medical evaluation"
         ]
       }
     },
     "pp-1004": {
       "triage": {
         "level": "urgent",
-        "rationale": "A rapidly enlarging cutaneous mass with intermittent redness/swelling in a 9-year-old Boxer is highly suspicious for a mast cell tumor (breed predisposition, possible Darier's sign from degranulation); while not immediately life-threatening, delay risks progression, ulceration, or a degranulation event, so evaluation within 24–48 hours is warranted rather than routine scheduling."
+        "rationale": "Rapidly growing, fluctuating, erythematous skin mass in a Boxer is highly suspicious for mast cell tumor, which warrants prompt cytologic evaluation."
       },
-      "clinicalSummary": "9-year-old neutered male Boxer with a 3-week history of a right lateral thoracic skin mass that has grown from pea- to grape-sized, with intermittent erythema and swelling that waxes and wanes. Boxers are overrepresented for mast cell tumors, and the fluctuating redness pattern raises concern for mast cell degranulation (Darier's sign) rather than a benign lipoma, especially given the rapid growth rate compared to the patient's prior lipomas. No systemic signs (vomiting, lethargy, inappetence) are reported by the owner. Physical exam and cytology are needed to differentiate mast cell tumor from other differentials before surgical planning.",
+      "clinicalSummary": "9-year-old male neutered Boxer with a 3-week history of a right lateral thoracic skin/subcutaneous mass that has grown from pea- to grape-sized, with intermittent erythema and swelling ('waxing and waning'). This fluctuating redness and rapid growth pattern is consistent with mast cell degranulation (Darier's sign), and Boxers are a breed with well-documented predisposition to mast cell tumors. Prior history of benign lipoma excision is reassuring but not directly relevant given the different clinical behavior described here. Physical exam, fine needle aspiration cytology, and regional lymph node palpation are needed to characterize the mass before any surgical planning.",
       "differentials": [
         {
-          "condition": "Mast cell tumor (cutaneous)",
+          "condition": "Cutaneous or subcutaneous mast cell tumor",
           "likelihood": "high",
           "supporting": [
             "Boxer breed predisposition",
             "Rapid growth over 3 weeks",
-            "Intermittent redness and swelling consistent with degranulation (Darier's sign)",
-            "Size fluctuation is atypical for lipoma"
+            "Intermittent redness/swelling consistent with Darier's sign (mast cell degranulation)"
           ],
           "against": [
-            "No confirmed cytology yet",
-            "Owner-reported findings unverified"
+            "No cytology yet to confirm mast cell origin",
+            "Owner description is unverified and imprecise"
           ]
         },
         {
           "condition": "Histiocytoma",
-          "likelihood": "low",
-          "supporting": [
-            "Can present as a rapidly growing dermal nodule",
-            "Sometimes erythematous"
-          ],
-          "against": [
-            "Typically occurs in dogs <4 years old, less common at 9 years",
-            "Usually solitary and spontaneously regresses over weeks, not fluctuates"
-          ]
-        },
-        {
-          "condition": "Lipoma (atypical or infiltrative)",
-          "likelihood": "low",
-          "supporting": [
-            "Prior history of two lipomas",
-            "Common benign subcutaneous mass in this breed/age"
-          ],
-          "against": [
-            "Classic lipomas grow slowly and do not fluctuate in size or become red/puffy",
-            "Rapid growth pattern atypical"
-          ]
-        },
-        {
-          "condition": "Insect bite reaction, abscess, or focal folliculitis/furunculosis",
           "likelihood": "moderate",
           "supporting": [
-            "Waxing/waning redness and swelling could reflect an inflammatory or infectious process",
-            "Indoor/outdoor exposure not specified but possible"
+            "Can present as a rapidly growing, sometimes erythematous dermal nodule"
           ],
           "against": [
-            "No reported wound, discharge, or pain noted by owner",
-            "Persistence and progressive growth over 3 weeks less typical for a simple bite reaction"
+            "Typically affects younger dogs (<4 years)",
+            "Usually solitary, non-fluctuating in size once formed, and self-resolves over weeks without recurring swelling"
           ]
         },
         {
-          "condition": "Soft tissue sarcoma",
-          "likelihood": "low",
+          "condition": "Reactive/inflammatory lesion (e.g., insect bite reaction, folliculitis, hematoma)",
+          "likelihood": "moderate",
           "supporting": [
-            "Can present as a firm, slowly enlarging subcutaneous mass in older dogs"
+            "Fluctuating redness and swelling could reflect an inflammatory or infectious process rather than neoplasia"
           ],
           "against": [
-            "Usually does not fluctuate in size or show intermittent erythema",
-            "Growth rate described is faster than typical sarcoma progression"
+            "Progressive growth over 3 weeks is less typical for a simple reactive lesion",
+            "No reported trauma or wound at the site"
+          ]
+        },
+        {
+          "condition": "Soft tissue sarcoma or other cutaneous neoplasm (e.g., lipoma, though atypical here)",
+          "likelihood": "low",
+          "supporting": [
+            "Prior history of lipoma excision suggests some predisposition to cutaneous masses in this dog"
+          ],
+          "against": [
+            "Lipomas do not typically show fluctuating erythema/swelling",
+            "Sarcomas usually grow more insidiously without waxing/waning appearance"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Fine-needle aspiration and cytology",
-          "purpose": "To identify mast cells, granulation tissue, or other cell populations and guide urgency of excision.",
+          "test": "Fine needle aspiration and cytology of the mass",
+          "purpose": "Rapidly differentiate mast cell tumor from other differentials and guide urgency of surgical planning.",
           "priority": "first-line"
         },
         {
-          "test": "Complete physical examination including regional lymph node palpation",
-          "purpose": "To assess mass characteristics, local lymphadenopathy, and rule out multicentric disease.",
+          "test": "Physical exam with regional (axillary/pre-scapular) lymph node palpation",
+          "purpose": "Assess for local lymphatic spread if mast cell tumor is confirmed or suspected.",
           "priority": "first-line"
         },
         {
-          "test": "Complete blood count and serum chemistry panel",
-          "purpose": "To evaluate for systemic effects of mast cell degranulation (e.g., eosinophilia) and assess anesthetic candidacy prior to potential excision.",
+          "test": "CBC, serum chemistry, and buffy coat smear",
+          "purpose": "Baseline health assessment and screen for systemic mastocytosis or paraneoplastic changes if MCT is confirmed.",
           "priority": "if indicated"
         },
         {
-          "test": "Abdominal ultrasound and/or lymph node aspirate (staging)",
-          "purpose": "To evaluate for regional or distant spread if cytology confirms mast cell tumor.",
+          "test": "Abdominal ultrasound with spleen/liver evaluation and lymph node aspiration",
+          "purpose": "Staging for metastasis if cytology confirms mast cell tumor.",
           "priority": "if indicated"
         },
         {
-          "test": "Histopathology with margins after excisional or incisional biopsy",
-          "purpose": "To confirm diagnosis, grade the tumor if a mast cell tumor, and assess completeness of excision.",
+          "test": "Excisional or incisional biopsy with histopathology and grading",
+          "purpose": "Definitive diagnosis and grading to guide margins and prognosis once cytology suggests neoplasia.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Waxing and waning size with redness is suggestive of mast cell degranulation (possible Darier's sign)",
-        "Boxer breed has known predisposition to mast cell tumors",
-        "Rapid growth over a short time frame (3 weeks) warrants prompt evaluation rather than routine scheduling",
-        "Owner should be advised not to manipulate or traumatize the mass, as this can trigger degranulation and systemic reaction"
+        "Fluctuating redness and swelling (possible Darier's sign) suggestive of mast cell degranulation",
+        "Rapid growth over 3 weeks in a breed with known mast cell tumor predisposition",
+        "No photo available to assess lesion characteristics such as ulceration, borders, or surrounding skin changes"
       ],
-      "clientCommunication": "Thank you for sending in photos and details about the lump on your dog's side. Because it's grown fairly quickly and the redness comes and goes, we'd like to see him sooner rather than later so we can take a closer look and possibly get a small sample of cells to understand what's going on. Please try not to squeeze, scratch, or bump the area in the meantime. We'll be in touch to schedule a visit within the next day or two.",
+      "clientCommunication": "Thank you for describing the lump so clearly \\u2014 the fact that it's grown quickly and sometimes looks red and puffy is something we'd like to check soon rather than wait. This pattern can have several causes, some simple and some that need a bit more attention, and a quick in-office test (a small needle sample) usually gives us fast answers. Could we get him in within the next day or two? In the meantime, please try to keep him from scratching, licking, or rubbing the area.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical examination has been performed",
-          "Photo was submitted but is not available for direct review, limiting objective visual assessment",
-          "Findings are based solely on owner-reported history, which may be imprecise regarding size, color changes, or texture",
-          "No information provided on mass consistency, mobility, pain response, or presence of ulceration"
+          "No physical exam performed",
+          "Photo submitted but not available for review, so lesion appearance (color, texture, borders, ulceration) could not be assessed",
+          "Findings based solely on owner-reported history, which may be imprecise regarding size changes and redness pattern",
+          "No cytology or histopathology results yet to confirm tissue type"
         ]
       }
     },
     "pp-1005": {
       "triage": {
         "level": "urgent",
-        "rationale": "A 20% body weight loss over one year combined with polydipsia, polyuria, and intermittent vomiting in a senior cat suggests a significant underlying metabolic or systemic disease (e.g., hyperthyroidism, diabetes mellitus, or chronic kidney disease) that could progress to dehydration, ketoacidosis, or metabolic crisis if not evaluated promptly. This case should be seen within 24\the empatency deterioration risk, though it does not yet describe acute collapse or overt emergency signs."
+        "rationale": "Significant unexplained weight loss (about 20% of body weight) with increased thirst/urination and vomiting in a senior cat raises concern for a metabolic or endocrine disease that could destabilize quickly."
       },
-      "clinicalSummary": "12-year-old neutered male Persian cat presenting with an approximate 20% body weight loss over the past year, polyphagia, intermittent vomiting, polydipsia/polyuria, and a greasy, matted haircoat with reduced grooming behavior. This symptom constellation in a geriatric cat is most consistent with a systemic endocrine or renal disorder, with hyperthyroidism, diabetes mellitus, and chronic kidney disease (the latter of particular concern given the Persian breed's predisposition to polycystic kidney disease) as leading considerations. The poor coat quality may reflect either a primary dermatologic issue or, more likely, secondary self-neglect from systemic illness or discomfort (e.g., osteoarthritis limiting grooming reach). No prior veterinary workup has been performed in over two years, so baseline bloodwork is lacking.",
+      "clinicalSummary": "12-year-old neutered male Persian with a 1-year history of ~20% body weight loss (4.5kg to 3.6kg) despite normal-to-increased appetite, polyuria/polydipsia, intermittent vomiting, and a greasy, poorly groomed coat with matting over the dorsum. This constellation is classic for feline hyperthyroidism but overlaps with diabetes mellitus and chronic kidney disease, all of which are plausible in this age group. The cat has not had veterinary care in over 2 years, so baseline health status and vaccination/parasite status are unknown, and grooming neglect suggests systemic illness or possible comorbid musculoskeletal discomfort limiting self-care.",
       "differentials": [
         {
           "condition": "Hyperthyroidism",
           "likelihood": "high",
           "supporting": [
-            "Weight loss despite normal-to-increased appetite",
+            "Weight loss with normal/increased appetite",
+            "PU/PD",
             "Vomiting",
-            "Poor coat/grooming neglect",
-            "Typical age range (8\the13 years)"
+            "Poor coat quality/grooming neglect",
+            "Senior cat"
           ],
           "against": [
-            "PU/PD reported, which is somewhat less classic for hyperthyroidism alone and may indicate a concurrent process",
-            "No mention of hyperactivity or tachycardia, though owner may not have observed these"
-          ]
-        },
-        {
-          "condition": "Chronic kidney disease (including possible polycystic kidney disease given Persian breed)",
-          "likelihood": "high",
-          "supporting": [
-            "Breed predisposition to PKD",
-            "Polyuria/polydipsia",
-            "Weight loss",
-            "Vomiting",
-            "Poor coat consistent with uremia or general malaise"
-          ],
-          "against": [
-            "Appetite reportedly normal to increased rather than decreased, which is atypical for advanced CKD"
+            "No palpable thyroid nodule reported (exam pending)",
+            "Photo/exam findings not yet available to assess for tachycardia, palpable goiter"
           ]
         },
         {
           "condition": "Diabetes mellitus",
           "likelihood": "moderate",
           "supporting": [
-            "Polyuria/polydipsia",
-            "Weight loss with polyphagia",
-            "Vomiting (possible if progressing toward ketosis)"
+            "PU/PD",
+            "Weight loss despite good appetite",
+            "Vomiting can occur, especially if ketotic"
           ],
           "against": [
-            "Poor coat and grooming neglect less classically linked to uncomplicated diabetes",
-            "No reported plantigrade stance or other diabetic neuropathy signs"
+            "Vomiting more typical of DKA than uncomplicated diabetes",
+            "No mention of increased appetite specifically described as ravenous, though possible"
           ]
         },
         {
-          "condition": "Gastrointestinal disease (e.g., chronic enteropathy, GI lymphoma)",
-          "likelihood": "low",
+          "condition": "Chronic kidney disease",
+          "likelihood": "moderate",
           "supporting": [
+            "Senior cat",
+            "PU/PD",
             "Weight loss",
-            "Vomiting",
-            "Age consistent with feline GI neoplasia"
+            "Vomiting"
           ],
           "against": [
-            "Does not readily explain polyuria/polydipsia or poor coat",
-            "Less commonly causes marked PU/PD unless paraneoplastic or concurrent renal involvement"
+            "Appetite typically reduced with CKD, but here reported as normal/increased",
+            "Poor coat less classically prominent early in CKD"
+          ]
+        },
+        {
+          "condition": "Gastrointestinal disease (e.g., inflammatory bowel disease or alimentary lymphoma)",
+          "likelihood": "moderate",
+          "supporting": [
+            "Chronic vomiting",
+            "Weight loss despite adequate intake",
+            "Common in older cats, can coexist with hyperthyroidism"
+          ],
+          "against": [
+            "Does not directly explain PU/PD unless concurrent renal or endocrine disease"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Complete blood count, serum chemistry panel, and urinalysis with urine specific gravity",
-          "purpose": "Screen for renal, hepatic, and metabolic abnormalities and assess urine concentrating ability.",
+          "test": "CBC, serum biochemistry panel (including glucose, renal and hepatic values, electrolytes), and total T4",
+          "purpose": "Screen for hyperthyroidism, diabetes mellitus, renal disease, and electrolyte derangements driving clinical signs.",
           "priority": "first-line"
         },
         {
-          "test": "Total T4 (with free T4 if equivocal)",
-          "purpose": "Evaluate for hyperthyroidism given the classic weight loss/appetite/coat presentation.",
+          "test": "Urinalysis with urine specific gravity, glucosuria/ketonuria assessment, and urine protein:creatinine ratio",
+          "purpose": "Differentiate renal concentrating ability from diabetes mellitus and assess for proteinuria or ketosis.",
           "priority": "first-line"
         },
         {
-          "test": "Blood pressure measurement",
-          "purpose": "Screen for systemic hypertension associated with hyperthyroidism or CKD.",
+          "test": "Physical exam with thoracic auscultation and blood pressure measurement",
+          "purpose": "Detect cardiac arrhythmia/murmur and hypertension associated with thyrotoxicosis, which can decompensate acutely.",
           "priority": "first-line"
         },
         {
-          "test": "Abdominal ultrasound (renal architecture, thyroid, GI tract)",
-          "purpose": "Assess for polycystic kidney disease, renal changes, thyroid nodules, or GI wall thickening/masses.",
+          "test": "ECG",
+          "purpose": "Evaluate for thyrotoxic cardiomyopathy-associated arrhythmia if tachycardia, murmur, or gallop is found on exam.",
           "priority": "if indicated"
         },
         {
-          "test": "Urine culture and sensitivity",
-          "purpose": "Rule out concurrent urinary tract infection contributing to PU/PD signs.",
+          "test": "Abdominal ultrasound",
+          "purpose": "Further characterize GI, renal, hepatic, or pancreatic disease if bloodwork is inconclusive or GI signs persist.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Marked unintentional weight loss (~20% body weight over one year) in a geriatric cat",
-        "Persistent vomiting with concurrent polyuria/polydipsia raising concern for dehydration or electrolyte derangement",
-        "Persian breed predisposition to polycystic kidney disease",
-        "Poor grooming may indicate significant systemic illness or underlying pain (e.g., osteoarthritis) limiting self-care",
-        "No veterinary care in over two years, so baseline health status is unknown"
+        "Substantial unintentional weight loss (~20% body weight) over roughly one year",
+        "Chronic vomiting in combination with PU/PD raises concern for possible diabetic ketoacidosis or thyrotoxic crisis if untreated",
+        "No veterinary evaluation in over 2 years, so baseline cardiac and metabolic status unknown",
+        "Grooming neglect may indicate systemic illness severity or underlying discomfort"
       ],
-      "clientCommunication": "Thank you for sharing such detailed observations about your cat's health. The combination of weight loss, increased thirst, and the change in his coat suggests there may be an underlying condition\the such as a thyroid, kidney, or blood sugar issue\the that we'll want to investigate with some bloodwork and a physical exam. Because he's lost a notable amount of weight and has been vomiting, we'd like to see him within the next day or two rather than waiting for a routine appointment. In the meantime, please make sure he has easy access to fresh water, and let us know if he becomes lethargic, stops eating, or vomits repeatedly.",
+      "clientCommunication": "Thank you for the detailed history \noticing his weight loss, thirst, and coat changes early is really helpful. These signs can be caused by several treatable conditions common in older cats, most often related to thyroid, kidney, or blood sugar issues, but we won't know for certain until we examine him and run some bloodwork and a urine test. Because he's lost a significant amount of weight and hasn't been seen by a vet in a while, we'd like to get him in within the next day or two rather than waiting for a routine slot. In the meantime, please let us know right away if he becomes lethargic, stops eating, or vomits repeatedly.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical examination performed",
-          "No laboratory or imaging data available yet",
-          "Owner-reported symptoms are unverified and may be imprecise (e.g., exact degree of PU/PD, vomiting frequency)",
-          "Photo of dorsal coat was submitted but not available for review, limiting dermatologic assessment"
+          "No physical examination performed yet",
+          "Photo of dorsal coat not available for direct review",
+          "History is owner-reported and unverified",
+          "No prior medical records or baseline bloodwork for comparison"
         ]
       }
     },
     "pp-1006": {
       "triage": {
         "level": "routine",
-        "rationale": "Signs are consistent with localized fold pyoderma/intertrigo without systemic illness reported (no fever, lethargy, anorexia, or pain noted); this is uncomfortable but not acutely life-threatening and can be scheduled within the next few days to a week."
+        "rationale": "Findings are consistent with localized skin fold dermatitis/pyoderma, a common and non-life-threatening condition in brachycephalic breeds, but should be seen soon to prevent worsening infection."
       },
-      "clinicalSummary": "4-year-old spayed female French Bulldog with a history of brachycephalic airway surgery presents with owner-reported malodor, erythema, and moist skin in the facial folds and perivulvar/tail-fold region, with associated facial rubbing behavior suggesting pruritus or discomfort. Findings are localized to skin fold regions, a classic anatomic predisposition site in brachycephalic breeds with screw tails. Leading concern is bilateral facial and tail fold intertrigo with secondary bacterial and/or Malassezia overgrowth. No systemic signs (lethargy, inappetence, respiratory distress) are reported.",
+      "clinicalSummary": "4-year-old spayed female French Bulldog with malodorous, erythematous, and moist skin in the facial folds and perivulvar/screw-tail region, with associated facial rubbing suggestive of pruritus or discomfort. No systemic signs (lethargy, inappetence, vomiting) are reported. Presentation is typical of intertriginous dermatitis with secondary bacterial and/or Malassezia overgrowth, a common issue in brachycephalic breeds with deep facial and tail folds. Underlying allergic or conformational predisposition should be considered given breed and chronicity of fold anatomy.",
       "differentials": [
         {
-          "condition": "Fold pyoderma / intertrigo (facial and tail fold) with secondary bacterial and/or Malassezia dermatitis",
+          "condition": "Skin fold intertrigo with secondary bacterial pyoderma",
           "likelihood": "high",
           "supporting": [
             "Malodor",
-            "Erythema",
-            "Moist/damp appearance of folds",
-            "Anatomic predisposition (facial folds, screw tail) in French Bulldog",
-            "Facial rubbing suggesting pruritus/discomfort"
+            "Erythema and moisture in facial and tail folds",
+            "Breed predisposition (brachycephalic facial folds, screw tail)"
           ],
-          "against": [
-            "No photo available to confirm cytologic-type findings visually"
-          ]
+          "against": []
         },
         {
-          "condition": "Malassezia dermatitis (yeast overgrowth) as primary or co-driver of odor and erythema",
+          "condition": "Malassezia dermatitis (yeast overgrowth) of skin folds",
           "likelihood": "high",
           "supporting": [
-            "Characteristic malodor",
-            "Erythema in warm moist folds",
-            "Breed predisposition to yeast dermatitis"
+            "Odor characteristic of yeast overgrowth",
+            "Moist, erythematous fold skin",
+            "Common comorbid finding with bacterial intertrigo in this breed"
           ],
           "against": [
-            "Cannot differentiate from bacterial component without cytology"
+            "Cannot distinguish from bacterial pyoderma without cytology"
           ]
         },
         {
-          "condition": "Allergic dermatitis (atopic dermatitis or cutaneous adverse food reaction) with secondary fold pyoderma",
+          "condition": "Underlying allergic dermatitis (atopic dermatitis or cutaneous adverse food reaction)",
           "likelihood": "moderate",
           "supporting": [
-            "Pruritus (face rubbing)",
-            "Recurrent fold involvement can be seen with underlying allergic skin disease",
-            "Breed predisposition to atopy"
+            "Facial rubbing/pruritus",
+            "Recurrent fold dermatitis is often secondary to allergic disease in this breed"
           ],
           "against": [
-            "No mention of other pruritic sites, seasonal pattern, or GI signs to support diet-responsive disease",
-            "Localized distribution more typical of primary fold pyoderma"
+            "No mention of seasonal pattern or other body regions affected",
+            "Diet is unchanged commercial kibble, though food trial not yet attempted"
           ]
         },
         {
-          "condition": "Demodicosis (localized facial form)",
+          "condition": "Demodicosis (localized)",
           "likelihood": "low",
           "supporting": [
-            "Facial erythema",
-            "Brachycephalic breeds can show localized demodicosis"
+            "Facial and fold involvement can occur with localized demodex"
           ],
           "against": [
-            "No reported alopecia or comedones",
-            "Distribution described is fold-specific rather than diffuse facial"
+            "No mention of alopecia or papules",
+            "Less classic odor/moisture pattern for demodex alone"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Skin surface cytology (tape strip or direct impression) of facial and tail folds",
-          "purpose": "Identify bacterial cocci/rods and Malassezia organisms to guide topical/systemic therapy.",
+          "test": "Skin fold cytology (tape preparation/impression smear) from facial folds and tail fold",
+          "purpose": "Identify bacterial cocci, rods, and/or Malassezia to guide targeted topical/systemic therapy",
           "priority": "first-line"
         },
         {
-          "test": "Physical examination with careful evaluation of fold depth, ocular exam, and screw tail conformation",
-          "purpose": "Assess severity, rule out corneal involvement from facial fold rubbing on eyes, and evaluate tail fold anatomy for surgical candidacy.",
+          "test": "Physical and dermatologic examination of all fold sites, ears, and perivulvar area",
+          "purpose": "Assess extent of disease, check for concurrent otitis or vulvar fold involvement common in this breed",
           "priority": "first-line"
         },
         {
-          "test": "Deep skin scraping of affected areas",
-          "purpose": "Rule out demodicosis if lesions are refractory or atypical.",
+          "test": "Skin scraping of affected areas",
+          "purpose": "Rule out demodicosis if lesions are refractory to initial treatment or atypical in appearance",
           "priority": "if indicated"
         },
         {
-          "test": "Bacterial culture and susceptibility if cytology shows rods or history of recurrent/refractory infection",
-          "purpose": "Guide antibiotic selection in case of resistant or deep pyoderma.",
+          "test": "Bacterial culture and susceptibility",
+          "purpose": "Guide antibiotic choice if cytology shows rods or if there is poor response to first-line topical/systemic therapy",
           "priority": "if indicated"
         },
         {
-          "test": "Elimination diet trial or allergy workup if fold pyoderma recurs after appropriate treatment",
-          "purpose": "Investigate underlying allergic disease as a driver of recurrent fold dermatitis.",
+          "test": "Elimination diet trial and/or allergy workup",
+          "purpose": "Investigate underlying allergic disease if fold dermatitis is recurrent or if pruritus extends beyond fold regions",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Owner reports photo was submitted but it is not available for review, limiting objective assessment of lesion severity",
-        "Facial fold rubbing raises possibility of ocular irritation or corneal involvement, which should be specifically examined given brachycephalic conformation",
-        "No zoonotic risk identified based on current history"
+        "No physical photo available for dermatologic assessment despite owner submission",
+        "Chronic or recurrent fold pyoderma may indicate need for surgical fold correction (e.g., cheiloplasty, tail fold resection) if medical management fails"
       ],
-      "clientCommunication": "Thank you for the detailed description and photo of your pup's skin folds. What you're describing—odor, redness, and dampness in the face wrinkles and around the tail—is quite common in French Bulldogs because of their special skin fold anatomy, and it's usually very manageable once we know exactly what's going on underneath. We'll want to see her in the next few days to examine the folds closely and take a quick, painless skin sample to check for the type of overgrowth (bacteria or yeast) causing the smell and redness. In the meantime, try to keep the folds gently dry and avoid any home remedies until she's been examined, especially since she's rubbing her face, which could also be related to eye or general fold discomfort we'll want to check.",
+      "clientCommunication": "Thank you for the detailed description and photo of your dog's skin folds. What you're describing—odor, redness, and dampness in the face wrinkles and around the tail—is a common issue in French Bulldogs because of their skin fold anatomy, and it's very treatable once we identify what's going on in those folds. We'd like to see her soon so we can examine the area closely and take a quick skin sample to check for the type of overgrowth (bacteria or yeast) causing the irritation. In the meantime, try to keep the folds clean and dry, and let us know if she seems more uncomfortable, is not eating, or seems unwell in any other way.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No photo was actually available for review despite being submitted, removing ability to directly characterize lesion morphology, exudate, or depth",
-          "Owner-reported findings only; no physical exam, cytology, or fold depth assessment yet performed",
-          "Cannot assess for possible ocular surface involvement or corneal changes from facial rubbing without direct examination",
-          "Severity and chronicity of lesions not quantified by owner"
+          "No physical exam has been performed",
+          "Photo was submitted but not available for review, so lesion morphology cannot be directly assessed",
+          "Symptom description is owner-reported and may lack precision (e.g., degree of odor, moisture, or discomfort)",
+          "Extent of fold involvement (e.g., ears, vulvar folds) not specified"
         ]
       }
     },
     "pp-1007": {
       "triage": {
         "level": "emergency",
-        "rationale": "A male cat with stranguria, vocalizing in the litterbox, and no urine output for 12 hours is highly suspicious for urethral obstruction, a life-threatening emergency that can rapidly progress to acute kidney injury, hyperkalemia, and death within 24-48 hours if untreated."
+        "rationale": "Male cat with 12+ hours of anuria, straining, and vomiting is highly suspicious for urethral obstruction — a life-threatening emergency requiring immediate evaluation."
       },
-      "clinicalSummary": "5-year-old neutered male Maine Coon presenting with acute stranguria, pollakiuria (litterbox cycling), vocalization, lethargy, vomiting, and anuria for approximately 12 hours. History of prior hematuria last year suggests underlying feline lower urinary tract disease (FLUTD). Lethargy and vomiting in this context raise concern for complete urethral obstruction with possible early post-renal azotemia/uremia. This presentation warrants immediate physical examination to assess bladder size/turgor and rule out obstructive uropathy.",
+      "clinicalSummary": "5-year-old male castrated Maine Coon presenting with a 12-hour history of stranguria, pollakiuria, vocalization in the litter box, vomiting, lethargy, and hiding, with a prior episode of hematuria last year. This presentation is classic for feline lower urinary tract disease with likely urethral obstruction, especially given the anuria and systemic signs (vomiting, lethargy) suggesting possible post-renal azotemia and hyperkalemia. Physical exam should prioritize bladder palpation (large, firm, painful bladder supports obstruction), perineal/penile exam for urethral plug or stricture, and assessment for bradycardia or other signs of hyperkalemia. This is a time-sensitive emergency until obstruction is ruled out.",
       "differentials": [
         {
-          "condition": "Urethral obstruction (secondary to urolithiasis, urethral plug, or FLUTD/idiopathic cystitis)",
+          "condition": "Urethral obstruction (feline urologic syndrome / obstructive FLUTD)",
           "likelihood": "high",
           "supporting": [
-            "Male cat (anatomically predisposed to obstruction)",
-            "No urine produced in 12 hours",
-            "Straining and crying in litterbox",
-            "Prior episode of hematuria suggesting chronic lower urinary tract disease",
-            "Vomiting and lethargy consistent with developing uremia"
-          ],
-          "against": []
-        },
-        {
-          "condition": "Feline idiopathic cystitis (FIC) without complete obstruction",
-          "likelihood": "moderate",
-          "supporting": [
-            "History of self-resolving hematuria",
-            "Stranguria and licking genitals are classic FIC signs",
-            "Stress-associated lower urinary tract signs common in indoor cats"
+            "Male cat (higher risk of obstruction)",
+            "No urine produced in 12 hours despite straining",
+            "Crying/vocalizing in litter box suggesting pain",
+            "Vomiting and lethargy consistent with secondary uremia/hyperkalemia",
+            "Prior history of hematuria suggesting underlying FLUTD"
           ],
           "against": [
-            "Complete absence of urine for 12 hours is atypical for FIC alone and more consistent with obstruction",
-            "Systemic signs (vomiting, lethargy) suggest more than cystitis alone"
+            "Physical exam not yet performed to confirm bladder distension"
           ]
         },
         {
-          "condition": "Urolithiasis (cystic or urethral calculi)",
+          "condition": "Non-obstructive feline idiopathic cystitis (FIC) with severe pollakiuria mimicking obstruction",
           "likelihood": "moderate",
           "supporting": [
-            "Prior hematuria episode",
-            "Male cat predisposition",
-            "Current obstructive signs"
+            "History of prior self-resolving hematuria episode",
+            "Straining and licking genitals common in FIC"
           ],
           "against": [
-            "Cannot confirm without imaging"
+            "Complete anuria for 12 hours is atypical for FIC without obstruction",
+            "Systemic signs (vomiting, lethargy) more suggestive of true obstruction"
           ]
         },
         {
-          "condition": "Bacterial UTI",
-          "likelihood": "low",
+          "condition": "Urolithiasis with secondary urethral obstruction",
+          "likelihood": "moderate",
           "supporting": [
-            "Licking genitals",
-            "Straining"
+            "Prior bloody urine episode may reflect crystalluria/urolith formation",
+            "Current straining and inability to void"
           ],
           "against": [
-            "Uncommon primary cause in young male cats without prior catheterization or comorbidities",
-            "Does not typically cause complete anuria"
+            "Cannot confirm stone type or presence without imaging"
+          ]
+        },
+        {
+          "condition": "Acute kidney injury (post-renal) secondary to obstruction",
+          "likelihood": "moderate",
+          "supporting": [
+            "Vomiting and lethargy could reflect uremia",
+            "Anuria over 12 hours raises concern for accumulating azotemia"
+          ],
+          "against": [
+            "Would need bloodwork to confirm degree of renal compromise"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Physical examination with bladder palpation",
-          "purpose": "Assess bladder size, turgor, and pain to confirm or rule out obstruction; check for signs of uremia (bradycardia, hypothermia).",
+          "test": "Abdominal palpation and perineal/penile examination",
+          "purpose": "Immediately assess for a large, turgid bladder and identify a urethral plug or inability to express urine, confirming obstruction.",
           "priority": "first-line"
         },
         {
-          "test": "Serum biochemistry (BUN, creatinine, potassium) and venous blood gas",
-          "purpose": "Evaluate for azotemia and life-threatening hyperkalemia associated with urethral obstruction.",
+          "test": "Electrocardiogram (ECG)",
+          "purpose": "Detect arrhythmias (bradycardia, absent P waves, widened QRS) associated with life-threatening hyperkalemia from urethral obstruction.",
           "priority": "first-line"
         },
         {
-          "test": "Abdominal radiographs",
-          "purpose": "Identify radiopaque uroliths and assess bladder size/shape.",
+          "test": "Serum biochemistry panel (especially potassium, BUN, creatinine) and venous blood gas",
+          "purpose": "Quantify hyperkalemia, azotemia, and acid-base status to guide emergency stabilization before/during decompression.",
           "priority": "first-line"
         },
         {
-          "test": "Urinalysis (via cystocentesis if unobstructed, or post-catheterization sample)",
-          "purpose": "Assess for crystalluria, hematuria, bacteria, and pH to characterize underlying urinary disease.",
-          "priority": "first-line"
+          "test": "Abdominal ultrasound or survey abdominal radiographs",
+          "purpose": "Evaluate bladder size, identify urethral or bladder uroliths, and assess kidneys for secondary changes.",
+          "priority": "if indicated"
         },
         {
-          "test": "Abdominal ultrasound",
-          "purpose": "Further characterize bladder wall, detect uroliths not visible on radiographs, and evaluate kidneys.",
+          "test": "Urinalysis with sediment examination (post-decompression)",
+          "purpose": "Characterize crystalluria, hematuria, and rule out infection once the cat is stabilized and urine can be safely collected.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Anuria for 12 hours in a male cat is a surgical/medical emergency due to risk of urethral obstruction",
-        "Vomiting and lethargy may indicate developing uremia or hyperkalemia",
-        "History of prior hematuria suggests recurrent/chronic lower urinary tract disease",
-        "Risk of bladder rupture or acute kidney injury if obstruction persists untreated"
+        "Anuria for 12+ hours in a male cat strongly suggests urethral obstruction, a life-threatening emergency",
+        "Vomiting and lethargy may indicate hyperkalemia and/or uremia requiring urgent stabilization",
+        "Risk of bradyarrhythmia or cardiac arrest if hyperkalemia is severe and untreated",
+        "Prior episode of hematuria suggests recurrent lower urinary tract disease, raising suspicion for underlying urolithiasis or FIC predisposing to plug formation"
       ],
-      "clientCommunication": "Thank you for letting us know right away — based on what you're describing, this could be a urinary blockage, which is a serious emergency in male cats and needs to be checked immediately, not scheduled for later. Please bring your cat in now or go to the nearest emergency vet clinic if we're not immediately available. Straining with no urine, along with vomiting and hiding, are signs that need urgent hands-on evaluation and likely some tests today to figure out what's going on and get him comfortable and safe. We know this is scary, but quick action gives him the best chance for a smooth recovery.",
+      "clientCommunication": "Thank you for letting us know right away — what you're describing (straining with no urine coming out, crying, vomiting, and hiding) can be a sign of a blocked bladder, which is a true emergency in male cats and needs to be checked immediately, not scheduled for later. Please bring him in to the clinic or an emergency vet right now, even if it's outside normal hours. Once we examine him we'll know more about what's going on and can start treatment quickly to get him comfortable. Try not to let him strain further at home — just get him to us as soon as you can.",
       "confidence": {
-        "level": "high",
+        "level": "moderate",
         "limitations": [
-          "No physical examination performed",
-          "Owner-reported symptoms are unverified and may be imprecise (e.g., true anuria vs. reduced urination)",
-          "No photo or diagnostic imaging available to confirm bladder distension or urolith presence",
-          "No lab values available to assess metabolic status"
+          "No physical examination performed yet to confirm bladder distension or obstruction",
+          "No photo or diagnostic results available",
+          "Owner-reported timeline and symptoms are unverified and may under- or overestimate severity",
+          "True anuria vs. severe pollakiuria cannot be distinguished without exam"
         ]
       }
     },
     "pp-1008": {
       "triage": {
         "level": "routine",
-        "rationale": "Patchy periocular/muzzle alopecia with only mild pruritus in an otherwise apparently healthy young dog is not immediately life-threatening, but should be evaluated within the next few days given shelter origin and potential for a contagious or zoonotic dermatophyte or ectoparasitic infection to spread to other pets or household members."
+        "rationale": "Localized periocular/muzzle alopecia with only mild pruritus in a young shelter dog is most consistent with juvenile-onset demodicosis or dermatophytosis; neither requires immediate intervention absent systemic illness."
       },
-      "clinicalSummary": "11-month-old intact male Beagle, recently adopted from a shelter, presents with a 3-week history of patchy, mildly pruritic hair loss localized to the periocular regions and muzzle. No systemic signs are reported. Shelter history includes roundworm treatment but vaccination status is incomplete. Leading concerns are localized demodicosis and dermatophytosis given the signalment, distribution, and shelter exposure history.",
+      "clinicalSummary": "11-month-old intact male Beagle, recently rehomed from a shelter 3 weeks ago, presents with bilateral periocular and muzzle patchy alopecia and mild pruritus. Signalment (young, shelter-origin, partially vaccinated) and lesion distribution are classic for localized demodicosis, but dermatophytosis must be ruled out given communal housing history and zoonotic potential. No systemic signs (lethargy, anorexia, GI signs) are reported. Physical exam and skin diagnostics are needed to differentiate parasitic, fungal, and bacterial causes before treatment is initiated.",
       "differentials": [
         {
           "condition": "Localized demodicosis (Demodex canis)",
           "likelihood": "high",
           "supporting": [
-            "Young dog (<1 year)",
-            "Periocular/muzzle distribution typical of localized demodex",
-            "Mild pruritus (demodex is often minimally pruritic unless secondarily infected)"
+            "Young dog (<18 months) at typical onset age",
+            "Periocular and muzzle distribution is classic",
+            "Shelter-origin dogs are commonly affected",
+            "Mild pruritus consistent with uncomplicated Demodex"
           ],
           "against": [
-            "No mention of erythema, comedones, or scaling in owner description"
+            "Cannot confirm without skin scraping; owner-reported findings only"
           ]
         },
         {
           "condition": "Dermatophytosis (ringworm)",
           "likelihood": "high",
           "supporting": [
-            "Shelter origin (high-risk environment for dermatophyte exposure)",
-            "Facial/periocular distribution common presentation",
-            "Patchy alopecia"
+            "Shelter-origin with likely exposure to other animals",
+            "Young age increases susceptibility",
+            "Periocular/muzzle alopecia is a common presentation",
+            "Zoonotic risk relevant given recent adoption"
           ],
           "against": [
-            "Pruritus, if present with dermatophytosis, is usually minimal to absent, which is roughly consistent here",
-            "No report of scaling, crusting, or circular lesions, but this cannot be excluded without photo/exam"
+            "No mention of scale, crusting, or classic circular lesions in owner description",
+            "Photo not available to assess for characteristic ring lesions"
           ]
         },
         {
-          "condition": "Sarcoptic mange (Sarcoptes scabiei)",
+          "condition": "Superficial bacterial folliculitis (secondary or primary)",
           "likelihood": "moderate",
           "supporting": [
-            "Shelter exposure increases risk",
-            "Facial involvement can occur"
+            "Can present with patchy hair loss and mild pruritus",
+            "Common secondary complication of demodicosis"
           ],
           "against": [
-            "Typically causes intense pruritus, more than 'mild itching' reported here",
-            "More common on ear margins, elbows, and ventrum than isolated periocular/muzzle"
+            "Less likely as sole primary cause in this distribution without pustules/crusting reported"
           ]
         },
         {
-          "condition": "Superficial bacterial folliculitis (secondary)",
+          "condition": "Contact or allergic dermatitis",
           "likelihood": "low",
           "supporting": [
-            "Can develop secondary to underlying demodicosis or dermatophytosis",
-            "Could contribute to hair loss and mild pruritus"
+            "Mild pruritus and facial distribution can occur with contact allergens"
           ],
           "against": [
-            "Less likely as a primary cause in this distribution without other signs like pustules or crusting reported"
+            "Bilateral symmetric periocular/muzzle alopecia is less typical",
+            "No history of new bedding, food, or product exposure at shelter noted"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Deep skin scraping (multiple sites, periocular and muzzle)",
-          "purpose": "To identify Demodex mites, which require deep scraping for detection.",
+          "test": "Multiple deep skin scrapings (periocular and muzzle lesions)",
+          "purpose": "Identify Demodex mites, the most likely and most treatable cause",
           "priority": "first-line"
         },
         {
-          "test": "Fungal culture (dermatophyte test medium, DTM) and/or Wood's lamp examination with trichogram",
-          "purpose": "To rule in or out dermatophytosis given shelter exposure and zoonotic risk.",
+          "test": "Wood's lamp examination and fungal culture (dermatophyte test medium)",
+          "purpose": "Screen for and confirm dermatophytosis given zoonotic risk and shelter exposure",
           "priority": "first-line"
         },
         {
-          "test": "Superficial skin scraping or acetate tape prep",
-          "purpose": "To screen for Sarcoptes mites or surface parasites/debris.",
+          "test": "Cytology (impression smear or tape prep) of affected skin",
+          "purpose": "Assess for secondary bacterial or yeast infection guiding adjunct therapy",
           "priority": "first-line"
         },
         {
-          "test": "Cytology (impression smear or tape cytology) of affected areas",
-          "purpose": "To assess for secondary bacterial or yeast infection.",
+          "test": "Fecal examination",
+          "purpose": "Screen for concurrent parasitism given incomplete shelter deworming history",
           "priority": "if indicated"
         },
         {
-          "test": "PCR for dermatophytes",
-          "purpose": "To confirm or expedite diagnosis if culture is inconclusive or rapid result needed given zoonotic concern.",
+          "test": "Bacterial culture and sensitivity of skin",
+          "purpose": "Guide antibiotic choice if folliculitis is confirmed and does not respond to first-line therapy",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Shelter origin raises concern for dermatophytosis, which is zoonotic and can spread to other household pets and people, especially children or immunocompromised individuals.",
-        "Incomplete vaccination status should be addressed alongside dermatologic workup.",
-        "If lesions progress beyond localized areas or pruritus significantly worsens, this could indicate generalized demodicosis or sarcoptic mange, both requiring more urgent management."
+        "Recent shelter origin raises zoonotic and contagious dermatophytosis risk to humans and other household pets until ruled out",
+        "Partial vaccination status warrants review of overall preventive care plan at visit"
       ],
-      "clientCommunication": "Thank you for bringing in these details about your new pup's skin. Hair loss around the eyes and muzzle in young dogs, especially those recently from a shelter, is fairly common and can have a few different causes, some of which are easily treated. We'll want to take a closer look and run a couple of simple, quick tests (like a skin scraping) to figure out exactly what's going on so we can start the right treatment. In the meantime, try to limit close contact between your dog and other pets or family members just as a precaution, since a couple of the possible causes can be contagious. We'll get you a clear plan once we've seen him in person.",
+      "clientCommunication": "Thanks for the detailed update on your new pup! Patchy hair loss around the eyes and muzzle in young dogs, especially those recently from a shelter, is often due to a treatable skin mite or a fungal infection, but we'll need to look at a skin sample under the microscope to know for sure. In the meantime, try to limit close contact with other pets or young children just as a precaution until we've ruled out anything contagious. Please bring him in for an exam and some quick skin tests \\u2014 this is very manageable once we know exactly what we're dealing with.",
       "confidence": {
         "level": "low",
         "limitations": [
-          "No physical examination has been performed",
-          "Photo was referenced but not available for review, so lesion morphology (scaling, crusting, erythema, comedones) cannot be assessed",
-          "Owner-reported pruritus severity is subjective and unverified",
-          "Complete shelter medical/exposure history is unknown beyond roundworm treatment"
+          "No physical exam performed",
+          "Photo submitted but not available for review, so lesion morphology cannot be assessed",
+          "Diagnosis relies entirely on owner-reported symptoms, which may be imprecise",
+          "No information on lesion progression, presence of scale/crust, or lesion borders"
         ]
       }
     }

@@ -118,6 +118,19 @@ textarea {
   animation: fadeUp 0.4s ease forwards;
 }
 
+/* ── Owner page nav ── */
+.site-nav {
+  padding: 0 2.5rem;
+}
+@media (max-width: 480px) {
+  .site-nav {
+    padding: 0 1rem;
+  }
+  .nav-badge {
+    display: none !important;
+  }
+}
+
 /* ── Vet dashboard ── */
 .vet-row {
   transition: background 0.15s;

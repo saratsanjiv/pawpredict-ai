@@ -31,32 +31,32 @@ export default function Home() {
       <div style={{ position: "fixed", borderRadius: "50%", pointerEvents: "none", zIndex: 0, filter: "blur(100px)", width: 400, height: 400, background: "rgba(20,184,166,0.04)", bottom: -120, left: -80 }} />
 
       {/* Nav */}
-      <nav style={{
+      <nav className="site-nav" style={{
         position: "sticky", top: 0, zIndex: 200,
         background: "rgba(9,9,11,0.85)", backdropFilter: "blur(16px)",
-        borderBottom: "1px solid var(--border)", padding: "0 2.5rem",
+        borderBottom: "1px solid var(--border)",
         height: 64, display: "flex", alignItems: "center", justifyContent: "space-between"
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, minWidth: 0 }}>
           <div style={{
             width: 34, height: 34, background: "var(--amber-dim)",
             border: "1px solid rgba(245,158,11,0.25)", borderRadius: 10,
-            display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem"
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", flexShrink: 0
           }}>🐾</div>
-          <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.3rem", color: "var(--text)" }}>
+          <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.3rem", color: "var(--text)", whiteSpace: "nowrap" }}>
             Paw<span style={{ color: "var(--amber)" }}>Predict</span> AI
           </span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+          <div className="nav-badge" style={{
             display: "flex", alignItems: "center", gap: 6, background: "var(--bg3)",
             border: "1px solid var(--border2)", borderRadius: 20, padding: "5px 12px 5px 8px",
-            fontSize: "0.7rem", fontWeight: 500, color: "var(--text3)"
+            fontSize: "0.7rem", fontWeight: 500, color: "var(--text3)", whiteSpace: "nowrap"
           }}>
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />
             Pet Health Intelligence
           </div>
-          <Link href="/vet" style={{
+          <Link href="/vet" style={{ whiteSpace: "nowrap",
             fontSize: "0.78rem", fontWeight: 500, color: "var(--teal)", textDecoration: "none",
             border: "1px solid rgba(20,184,166,0.3)", background: "var(--teal-dim)",
             borderRadius: 20, padding: "5px 12px"
