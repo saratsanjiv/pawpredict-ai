@@ -27,11 +27,6 @@ export default function AssessmentView({ a, hasPhoto }: { a: VetAssessment; hasP
 
   return (
     <div>
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: "0.8rem" }}>
-        <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.35rem", fontWeight: 400 }}>AI assessment</h2>
-        <span style={{ fontSize: "0.72rem", color: "var(--text3)" }}>Decision support only. Confirm with a clinical exam.</span>
-      </div>
-
       <div style={{
         background: triage.bg, border: `1px solid ${triage.border}`, borderRadius: "var(--r)",
         padding: "1.1rem 1.4rem", marginBottom: "0.8rem"
@@ -93,7 +88,7 @@ export default function AssessmentView({ a, hasPhoto }: { a: VetAssessment; hasP
       </Panel>
 
       <Panel icon="📷" iconBg="var(--bg4)" title="Photo findings">
-        <p style={body}>{a.imageFindings ?? (hasPhoto ? "No findings reported for the photo." : "No photo was submitted with this case.")}</p>
+        <p style={body}>{a.imageFindings ?? (hasPhoto ? "The photo wasn't available to the AI, so it wasn't analyzed." : "No photo was submitted with this case.")}</p>
       </Panel>
 
       <Panel icon="💬" iconBg="var(--green-dim)" title="Draft message to owner">

@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
+import { anthropic, MODEL } from "@/lib/anthropic";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { sanitizeText, sanitizeSymptoms, validateImage } from "@/lib/sanitize";
 import { AnalyzeRequestSchema, HealthReportSchema } from "@/lib/validation";
 
-// ─── Anthropic client (server-side only — key never sent to browser) ──────────
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+export const maxDuration = 120;
 
 // ─── CORS helper — only allow requests from our own origin ────────────────────
 function getCorsHeaders(req: NextRequest) {
@@ -102,9 +101,7 @@ export async function POST(req: NextRequest) {
 
   // ── 5. Build AI prompt ──────────────────────────────────────────────────────
   const systemPrompt = `You are PawPredict AI, a warm and expert veterinary health assessment AI.
-Analyze the provided pet data and return ONLY valid JSON — no markdown fences, no preamble.
-
-Return this exact structure:
+Analyze the provided pet data and fill in the health report. Field guidance:
 {
   "overallScore": <number 0-100>,
   "summary": "<2-3 friendly, warm sentences summarizing overall health>",
@@ -160,40 +157,23 @@ Generate the health risk report JSON.`,
 
   // ── 6. Call Anthropic API (server-side — key never exposed) ─────────────────
   try {
-    const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1024,
+    // parse() validates the response against HealthReportSchema and throws if it doesn't match
+    const message = await anthropic.messages.parse({
+      model: MODEL,
+      max_tokens: 16000,
       system: systemPrompt,
       messages: [{ role: "user", content: userContent }],
+      output_config: { format: zodOutputFormat(HealthReportSchema) },
     });
 
-    const rawText = message.content
-      .filter((b) => b.type === "text")
-      .map((b) => (b as Anthropic.TextBlock).text)
-      .join("")
-      .replace(/```json|```/g, "")
-      .trim();
-
-    // Parse and validate the AI response shape
-    let report: unknown;
-    try {
-      report = JSON.parse(rawText);
-    } catch {
-      return NextResponse.json(
-        { error: "AI returned malformed data. Please try again." },
-        { status: 502, headers: corsHeaders }
-      );
-    }
-
-    const validated = HealthReportSchema.safeParse(report);
-    if (!validated.success) {
+    if (message.stop_reason === "refusal" || !message.parsed_output) {
       return NextResponse.json(
         { error: "AI response did not match expected format. Please try again." },
         { status: 502, headers: corsHeaders }
       );
     }
 
-    return NextResponse.json(validated.data, {
+    return NextResponse.json(message.parsed_output, {
       status: 200,
       headers: {
         ...corsHeaders,
@@ -204,8 +184,13 @@ Generate the health risk report JSON.`,
     // Don't leak internal error details to the client
     console.error("[PawPredict API Error]", err);
 
-    const isAnthropicError = err instanceof Anthropic.APIError;
-    if (isAnthropicError && err.status === 429) {
+    if (err instanceof Anthropic.AnthropicError && !(err instanceof Anthropic.APIError)) {
+      return NextResponse.json(
+        { error: "AI response did not match expected format. Please try again." },
+        { status: 502, headers: corsHeaders }
+      );
+    }
+    if (err instanceof Anthropic.RateLimitError || (err instanceof Anthropic.APIError && err.status === 529)) {
       return NextResponse.json(
         { error: "AI service is busy. Please try again in a moment." },
         { status: 429, headers: corsHeaders }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { TriageLevel, VetCase } from "@/lib/vet/schema";
-import { casePhotoPath, formatAgo } from "@/lib/vet/cases";
+import { casePhotoPath, formatAgo } from "@/lib/vet/format";
 import TriageBadge from "./TriageBadge";
 
 const COLUMNS = "130px minmax(230px, 1.2fr) minmax(240px, 2fr) 100px 96px";

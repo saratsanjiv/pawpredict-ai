@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // The vet assessment route reads case photos from disk; bundle them with the serverless function.
+  experimental: {
+    outputFileTracingIncludes: {
+      "/api/vet/assess": ["./public/cases/**/*"],
+    },
+  },
+
   // Security headers applied to every response
   async headers() {
     return [

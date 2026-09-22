@@ -3,8 +3,14 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Panel } from "@/components/Panel";
 import PatientHeader from "@/components/vet/PatientHeader";
-import AssessmentView from "@/components/vet/AssessmentView";
-import { CASES, casePhotoPath, getCase } from "@/lib/vet/cases";
+import LiveAssessment from "@/components/vet/LiveAssessment";
+import { ASSESSMENT_META, CASES, getCase } from "@/lib/vet/cases";
+import { casePhotoPath } from "@/lib/vet/format";
+import { MODEL } from "@/lib/anthropic";
+
+const storedSource = ASSESSMENT_META.generatedAt
+  ? `${ASSESSMENT_META.model}, generated ${new Date(ASSESSMENT_META.generatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`
+  : ASSESSMENT_META.model;
 
 export function generateStaticParams() {
   return CASES.map((c) => ({ id: c.id }));
@@ -83,7 +89,13 @@ export default function CasePage({ params }: { params: { id: string } }) {
           </Panel>
         </div>
 
-        <AssessmentView a={c.assessment} hasPhoto={c.photo !== null} />
+        <LiveAssessment
+          caseId={c.id}
+          initial={c.assessment}
+          hasPhoto={c.photo !== null}
+          storedSource={storedSource}
+          liveModel={MODEL}
+        />
       </div>
     </>
   );

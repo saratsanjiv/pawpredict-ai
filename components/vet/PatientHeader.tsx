@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { VetCase } from "@/lib/vet/schema";
-import { formatAgo } from "@/lib/vet/cases";
+import { formatAgo } from "@/lib/vet/format";
 import TriageBadge from "./TriageBadge";
 
 export default function PatientHeader({ c }: { c: VetCase }) {

@@ -7,8 +7,10 @@ export default function VetDashboard() {
   const count = (level: "emergency" | "urgent" | "routine") =>
     cases.filter((c) => c.assessment.triage.level === level).length;
 
-  const stats = [
-    { label: "New cases", value: cases.filter((c) => c.status === "new").length, color: "var(--amber2)" },
+  const newCount = cases.filter((c) => c.status === "new").length;
+
+  const stats: { label: string; value: number; color: string; sub?: string }[] = [
+    { label: "Cases in queue", value: cases.length, color: "var(--text)", sub: `${newCount} new · ${cases.length - newCount} reviewed` },
     { label: "Emergency", value: count("emergency"), color: TRIAGE_STYLES.emergency.color },
     { label: "Urgent", value: count("urgent"), color: TRIAGE_STYLES.urgent.color },
     { label: "Routine", value: count("routine"), color: TRIAGE_STYLES.routine.color },
@@ -32,6 +34,7 @@ export default function VetDashboard() {
               {s.label}
             </div>
             <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: "2rem", lineHeight: 1, color: s.color }}>{s.value}</div>
+            {s.sub && <div style={{ fontSize: "0.72rem", color: "var(--amber2)", marginTop: "0.4rem" }}>{s.sub}</div>}
           </div>
         ))}
       </div>
