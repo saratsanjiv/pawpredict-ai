@@ -117,3 +117,26 @@ textarea {
 .animate-fade-up {
   animation: fadeUp 0.4s ease forwards;
 }
+
+/* ── Vet dashboard ── */
+.vet-row {
+  transition: background 0.15s;
+}
+.vet-row:hover {
+  background: var(--bg3);
+}
+.vet-row:last-child {
+  border-bottom: none !important;
+}
+
+.vet-case-grid {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .vet-case-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

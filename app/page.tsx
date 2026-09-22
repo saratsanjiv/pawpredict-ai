@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import HealthForm from "@/components/HealthForm";
 import HealthReportView from "@/components/HealthReport";
 import type { HealthReport } from "@/lib/validation";
@@ -46,13 +47,22 @@ export default function Home() {
             Paw<span style={{ color: "var(--amber)" }}>Predict</span> AI
           </span>
         </div>
-        <div style={{
-          display: "flex", alignItems: "center", gap: 6, background: "var(--bg3)",
-          border: "1px solid var(--border2)", borderRadius: 20, padding: "5px 12px 5px 8px",
-          fontSize: "0.7rem", fontWeight: 500, color: "var(--text3)"
-        }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />
-          Pet Health Intelligence
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 6, background: "var(--bg3)",
+            border: "1px solid var(--border2)", borderRadius: 20, padding: "5px 12px 5px 8px",
+            fontSize: "0.7rem", fontWeight: 500, color: "var(--text3)"
+          }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--teal)", flexShrink: 0 }} />
+            Pet Health Intelligence
+          </div>
+          <Link href="/vet" style={{
+            fontSize: "0.78rem", fontWeight: 500, color: "var(--teal)", textDecoration: "none",
+            border: "1px solid rgba(20,184,166,0.3)", background: "var(--teal-dim)",
+            borderRadius: 20, padding: "5px 12px"
+          }}>
+            For veterinarians →
+          </Link>
         </div>
       </nav>
 
