@@ -71,6 +71,7 @@ export interface VetCase extends CaseIntake {
   photo: { region: string; credit: string | null } | null;
   assessment: VetAssessment | null;
   assessmentStatus: AssessmentStatus;
+  assessmentError: string | null;
   assessmentModel: string | null;
   assessedAt: string | null;
 }

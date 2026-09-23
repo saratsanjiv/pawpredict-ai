@@ -101,6 +101,7 @@ export default async function CasePage(props: { params: Promise<{ id: string }> 
           caseId={c.id}
           initial={c.assessment}
           initialStatus={c.assessmentStatus}
+          initialError={c.assessmentError}
           hasPhoto={c.photo !== null}
           storedSource={storedSource(c)}
           liveModel={MODEL}

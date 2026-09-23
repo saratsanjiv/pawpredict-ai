@@ -3,6 +3,7 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { anthropic, MODEL } from "@/lib/anthropic";
 import { getCase, getCasePhotoPathname, markAssessmentFailed, saveAssessmentIfMissing } from "./cases";
 import { readCasePhoto } from "./photos";
+import { consumeAssessmentBudget } from "@/lib/spendGuard";
 import { VetAssessmentSchema, type CaseIntake, type VetAssessment, type VetCase } from "./schema";
 
 const SYSTEM_PROMPT = `You are PawPredict, a clinical decision-support tool for small-animal veterinarians. Before the patient is examined, you review an owner-submitted case (signalment, history, owner-reported symptoms and, when available, a photo) and produce a structured pre-consultation assessment for the veterinarian.
@@ -85,9 +86,12 @@ async function loadStoredPhoto(c: VetCase) {
 }
 
 // Assesses a stored case. The result is saved only if the case has no assessment yet;
-// otherwise it's returned as an unsaved live result.
+// otherwise it's returned as an unsaved live result. Every attempt — this is the one place both
+// a new submission's background assessment and the vet's re-run button funnel through — first
+// spends one unit of the shared daily budget (see lib/spendGuard.ts).
 export async function reassessCase(c: VetCase): Promise<{ assessment: VetAssessment; saved: boolean }> {
   try {
+    await consumeAssessmentBudget();
     const { assessment } = await assessCase(c, await loadStoredPhoto(c));
     const saved = c.assessment ? false : await saveAssessmentIfMissing(c.id, assessment, MODEL);
     return { assessment, saved };

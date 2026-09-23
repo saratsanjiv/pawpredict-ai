@@ -4,6 +4,7 @@ import { z } from "zod/v4";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { getCase } from "@/lib/vet/cases";
 import { reassessCase, AssessmentError } from "@/lib/vet/assess";
+import { SpendLimitError } from "@/lib/spendGuard";
 
 export const maxDuration = 120;
 
@@ -42,6 +43,9 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("[PawPredict vet assess error]", err);
 
+    if (err instanceof SpendLimitError) {
+      return NextResponse.json({ error: err.message }, { status: 429 });
+    }
     if (err instanceof AssessmentError) {
       return NextResponse.json({ error: "The AI couldn't produce a complete assessment. Please try again." }, { status: 502 });
     }

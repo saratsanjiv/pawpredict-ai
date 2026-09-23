@@ -9,6 +9,7 @@ import { assessNewCase } from "@/lib/vet/assess";
 import { insertCase, reserveCaseId } from "@/lib/vet/cases";
 import { uploadCasePhoto } from "@/lib/vet/photos";
 import type { CaseIntake } from "@/lib/vet/schema";
+import { checkSubmissionLimit, SUBMISSION_LIMIT_PER_HOUR } from "@/lib/spendGuard";
 
 export const maxDuration = 120;
 
@@ -72,6 +73,15 @@ export async function POST(req: NextRequest) {
           "X-RateLimit-Remaining": "0",
         },
       }
+    );
+  }
+
+  // ── 1b. Per-IP hourly submission limit (Neon-backed — survives across serverless instances,
+  //       unlike the in-memory limiter above) ─────────────────────────────────
+  if (!(await checkSubmissionLimit(ip))) {
+    return NextResponse.json(
+      { error: `You've reached the limit of ${SUBMISSION_LIMIT_PER_HOUR} submissions per hour. Please try again later.` },
+      { status: 429, headers: corsHeaders }
     );
   }
 

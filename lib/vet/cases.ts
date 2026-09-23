@@ -21,6 +21,7 @@ interface CaseRow {
   photo_credit: string | null;
   assessment: unknown;
   assessment_status: AssessmentStatus;
+  assessment_error: string | null;
   assessment_model: string | null;
   assessed_at: string | Date | null;
 }
@@ -30,7 +31,7 @@ interface CaseRow {
 const SELECT_CASE = `
   select id, status, pet_name, species, breed, age, sex, weight, owner_name, chief_complaint,
          symptoms, owner_notes, history, photo_region, photo_pathname, photo_credit,
-         assessment, assessment_model, assessed_at,
+         assessment, assessment_error, assessment_model, assessed_at,
          floor(extract(epoch from (now() - created_at)) / 60)::int as minutes_ago,
          case when assessment_status = 'pending' and created_at < now() - interval '5 minutes'
               then 'failed' else assessment_status end as assessment_status
@@ -53,6 +54,7 @@ function rowToCase(row: CaseRow): VetCase {
     assessment,
     // A stored assessment that no longer matches the schema is treated as missing so it can be re-run.
     assessmentStatus: parsed && !parsed.success ? "failed" : row.assessment_status,
+    assessmentError: row.assessment_error,
     assessmentModel: row.assessment_model,
     assessedAt: row.assessed_at ? new Date(row.assessed_at).toISOString() : null,
   };

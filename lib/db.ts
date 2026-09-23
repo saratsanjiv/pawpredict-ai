@@ -39,4 +39,15 @@ export const SCHEMA_STATEMENTS = [
     assessment_model  text,
     assessed_at       timestamptz
   )`,
+  // Spend guard (see lib/spendGuard.ts): one row per AI assessment attempt or accepted owner
+  // submission, counted over a rolling window. Not tied to `cases` — a re-run on an already-
+  // assessed case still costs money without writing a new case row.
+  `create table if not exists spend_events (
+    id         bigserial primary key,
+    kind       text not null check (kind in ('assessment_run', 'submission')),
+    ip         text,
+    created_at timestamptz not null default now()
+  )`,
+  `create index if not exists spend_events_kind_created_idx on spend_events (kind, created_at)`,
+  `create index if not exists spend_events_submission_ip_idx on spend_events (ip, created_at) where kind = 'submission'`,
 ];

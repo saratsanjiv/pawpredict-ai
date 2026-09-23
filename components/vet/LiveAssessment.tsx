@@ -10,6 +10,7 @@ interface Props {
   caseId: string;
   initial: VetAssessment | null;
   initialStatus: AssessmentStatus;
+  initialError: string | null;
   hasPhoto: boolean;
   storedSource: string | null;
   liveModel: string;
@@ -17,7 +18,7 @@ interface Props {
 
 type Mode = "stored" | "loading" | "live" | "saved";
 
-export default function LiveAssessment({ caseId, initial, initialStatus, hasPhoto, storedSource, liveModel }: Props) {
+export default function LiveAssessment({ caseId, initial, initialStatus, initialError, hasPhoto, storedSource, liveModel }: Props) {
   const router = useRouter();
   const [assessment, setAssessment] = useState(initial);
   const [mode, setMode] = useState<Mode>("stored");
@@ -100,6 +101,9 @@ export default function LiveAssessment({ caseId, initial, initialStatus, hasPhot
               ? "The AI couldn't assess this case automatically. Retry it now; a successful result is saved to the case."
               : "This case was just submitted and the AI is reviewing it. Refresh in a moment, or run it now; the result is saved to the case."}
           </p>
+          {failed && initialError && (
+            <p style={{ fontSize: "0.78rem", color: "var(--text3)", marginTop: "0.6rem" }}>{initialError}</p>
+          )}
         </Panel>
       )}
     </div>
