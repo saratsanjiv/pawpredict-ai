@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { TriageLevel, VetCase } from "@/lib/vet/schema";
 import { casePhotoPath, formatAgo } from "@/lib/vet/format";
-import TriageBadge, { UnassessedBadge } from "./TriageBadge";
+import TriageBadge, { ReviewedBadge, UnassessedBadge } from "./TriageBadge";
 
 const COLUMNS = "130px minmax(230px, 1.2fr) minmax(240px, 2fr) 100px 96px";
 
@@ -103,11 +103,12 @@ export default function CaseTable({ cases }: { cases: VetCase[] }) {
               <span style={{ fontSize: "0.78rem", color: "var(--text2)" }}>{formatAgo(c.minutesAgo)}</span>
 
               <span>
-                <span style={{
-                  fontSize: "0.7rem", fontWeight: 600, padding: "3px 9px", borderRadius: 20,
-                  background: c.status === "new" ? "var(--amber-dim)" : "var(--bg4)",
-                  color: c.status === "new" ? "var(--amber2)" : "var(--text3)"
-                }}>{c.status === "new" ? "New" : "Reviewed"}</span>
+                {c.status === "reviewed" ? <ReviewedBadge /> : (
+                  <span style={{
+                    fontSize: "0.7rem", fontWeight: 600, padding: "3px 9px", borderRadius: 20,
+                    background: "var(--amber-dim)", color: "var(--amber2)"
+                  }}>New</span>
+                )}
               </span>
             </Link>
           ))}

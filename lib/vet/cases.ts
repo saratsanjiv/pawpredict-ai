@@ -63,6 +63,7 @@ function rowToCase(row: CaseRow): VetCase {
 export async function getSortedCases(): Promise<VetCase[]> {
   const rows = (await sql().query(`${SELECT_CASE}
     order by (assessment is null) desc,
+             (status = 'reviewed') asc,
              case assessment->'triage'->>'level' when 'emergency' then 0 when 'urgent' then 1 else 2 end,
              created_at desc`)) as CaseRow[];
   return rows.map(rowToCase);
@@ -103,6 +104,10 @@ export async function saveAssessmentIfMissing(id: string, assessment: VetAssessm
     where id = ${id} and assessment is null
     returning id`;
   return rows.length > 0;
+}
+
+export async function updateCaseStatus(id: string, status: "new" | "reviewed"): Promise<void> {
+  await sql()`update cases set status = ${status} where id = ${id}`;
 }
 
 export async function markAssessmentFailed(id: string, error: string) {

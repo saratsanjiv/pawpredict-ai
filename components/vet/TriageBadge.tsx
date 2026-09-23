@@ -22,6 +22,19 @@ export function UnassessedBadge({ failed, large = false }: { failed: boolean; la
   );
 }
 
+export function ReviewedBadge({ large = false }: { large?: boolean }) {
+  return (
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap",
+      padding: large ? "6px 14px" : "3px 10px", borderRadius: 20,
+      fontSize: large ? "0.8rem" : "0.7rem", fontWeight: 600, letterSpacing: "0.03em",
+      background: "var(--green-dim)", color: "#86efac", border: "1px solid rgba(34,197,94,0.18)"
+    }}>
+      ✓ Reviewed
+    </span>
+  );
+}
+
 export default function TriageBadge({ level, large = false }: { level: TriageLevel; large?: boolean }) {
   const s = TRIAGE_STYLES[level];
   return (

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { VetCase } from "@/lib/vet/schema";
 import { formatAgo } from "@/lib/vet/format";
-import TriageBadge, { UnassessedBadge } from "./TriageBadge";
+import TriageBadge, { ReviewedBadge, UnassessedBadge } from "./TriageBadge";
+import ReviewToggle from "./ReviewToggle";
 
 export default function PatientHeader({ c }: { c: VetCase }) {
   const { patient } = c;
@@ -19,13 +20,17 @@ export default function PatientHeader({ c }: { c: VetCase }) {
         {c.assessment
           ? <TriageBadge level={c.assessment.triage.level} large />
           : <UnassessedBadge failed={c.assessmentStatus === "failed"} large />}
+        {c.status === "reviewed" && <ReviewedBadge large />}
       </div>
 
       <div style={{ fontSize: "0.9rem", color: "var(--text2)", marginBottom: "0.3rem" }}>
         {patient.breed} · {patient.age} · {patient.sex} · {patient.weight}
       </div>
-      <div style={{ fontSize: "0.76rem", color: "var(--text3)" }}>
-        {c.id.toUpperCase()} · Owner: {c.ownerName} · Submitted {formatAgo(c.minutesAgo)} · {c.status === "new" ? "New" : "Reviewed"}
+      <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+        <span style={{ fontSize: "0.76rem", color: "var(--text3)" }}>
+          {c.id.toUpperCase()} · Owner: {c.ownerName} · Submitted {formatAgo(c.minutesAgo)}
+        </span>
+        <ReviewToggle caseId={c.id} status={c.status} disabled={!c.assessment} />
       </div>
     </div>
   );

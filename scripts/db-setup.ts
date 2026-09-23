@@ -35,11 +35,12 @@ async function resetSubmissions() {
   console.log(`Reset: deleted ${deleted.length} submitted case(s) and ${stale.length} Blob photo(s); next case is pp-1009`);
 }
 
-async function seedSamples() {
+async function seedSamples(forceUnreviewed: boolean) {
   const assessments = stored.assessments as Record<string, unknown>;
 
   for (const c of SAMPLE_CASES) {
     const assessment = VetAssessmentSchema.parse(assessments[c.id]);
+    const status = forceUnreviewed ? "new" : c.status;
 
     let photoPathname: string | null = null;
     if (c.photo) {
@@ -52,7 +53,7 @@ async function seedSamples() {
       insert into cases (id, created_at, status, pet_name, species, breed, age, sex, weight, owner_name,
                          chief_complaint, symptoms, owner_notes, history, photo_region, photo_pathname,
                          photo_credit, assessment, assessment_status, assessment_error, assessment_model, assessed_at)
-      values (${c.id}, now() - make_interval(mins => ${c.minutesAgo}), ${c.status}, ${p.name}, ${p.species},
+      values (${c.id}, now() - make_interval(mins => ${c.minutesAgo}), ${status}, ${p.name}, ${p.species},
               ${p.breed}, ${p.age}, ${p.sex}, ${p.weight}, ${c.ownerName}, ${c.chiefComplaint}, ${c.symptoms},
               ${c.ownerNotes}, ${JSON.stringify(c.history)}, ${c.photo?.region ?? null}, ${photoPathname},
               ${c.photoCredit ?? null}, ${JSON.stringify(assessment)}, 'done', null, ${stored.model},
@@ -74,10 +75,11 @@ async function main() {
   for (const statement of SCHEMA_STATEMENTS) await sql.query(statement);
   console.log("Schema ready");
 
-  if (process.argv.includes("--reset")) await resetSubmissions();
+  const reset = process.argv.includes("--reset");
+  if (reset) await resetSubmissions();
 
-  console.log(`Seeding ${SAMPLE_CASES.length} sample cases...`);
-  await seedSamples();
+  console.log(`Seeding ${SAMPLE_CASES.length} sample cases${reset ? " (all unreviewed)" : ""}...`);
+  await seedSamples(reset);
 
   const [{ count }] = await sql`select count(*)::int as count from cases`;
   console.log(`Done. ${count} case(s) in the database.`);
