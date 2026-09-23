@@ -70,7 +70,7 @@ export const CASE_INTAKES: CaseIntake[] = [
       lastVet: "1–2 years ago",
       medicalHistory: "None reported.",
     },
-    photo: { region: "Face and left pinna" },
+    photo: null,
   },
   {
     id: "pp-1004",
@@ -106,7 +106,7 @@ export const CASE_INTAKES: CaseIntake[] = [
       lastVet: "Over 2 years ago",
       medicalHistory: "None reported.",
     },
-    photo: { region: "Dorsum" },
+    photo: null,
   },
   {
     id: "pp-1006",
@@ -124,7 +124,7 @@ export const CASE_INTAKES: CaseIntake[] = [
       lastVet: "Within 6 months",
       medicalHistory: "Brachycephalic airway surgery at 1 year.",
     },
-    photo: { region: "Facial folds" },
+    photo: null,
   },
   {
     id: "pp-1007",
@@ -160,7 +160,7 @@ export const CASE_INTAKES: CaseIntake[] = [
       lastVet: "Within 6 months",
       medicalHistory: "Shelter records note roundworm treatment.",
     },
-    photo: { region: "Periocular area and muzzle" },
+    photo: null,
   },
 ];
 

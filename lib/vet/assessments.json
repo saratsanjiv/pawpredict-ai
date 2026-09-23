@@ -1,6 +1,6 @@
 {
   "model": "claude-sonnet-5",
-  "generatedAt": "2026-09-23T00:47:10.134Z",
+  "generatedAt": "2026-09-23T00:53:01.102Z",
   "assessments": {
     "pp-1001": {
       "triage": {
@@ -204,102 +204,98 @@
     "pp-1003": {
       "triage": {
         "level": "urgent",
-        "rationale": "History strongly suggests dermatophytosis (ringworm) with likely zoonotic transmission to a child; needs prompt confirmation and treatment to limit further spread."
+        "rationale": "History strongly suggests dermatophytosis (ringworm) with concurrent human infection, which is zoonotic and contagious among household pets and people, warranting prompt veterinary evaluation and containment."
       },
-      "clinicalSummary": "2-year-old spayed female DSH with acute onset of round, alopecic, scaly patches on the face and pinnae. A recently introduced kitten in the household has a similar lesion, and a human household member has developed an annular pruritic lesion, a pattern highly suggestive of dermatophytosis. No systemic signs (lethargy, inappetence, vomiting) are reported. Physical exam, Wood's lamp screening, and fungal culture/PCR are needed to confirm the diagnosis and guide treatment and decontamination.",
+      "clinicalSummary": "Young adult spayed female DSH presents with owner-reported circular, alopecic, scaly lesions on the face and ears, occurring shortly after introduction of a kitten with similar lesions. A household member (child) has since developed an itchy, erythematous annular skin lesion, raising strong suspicion for zoonotic dermatophytosis (likely Microsporum canis). No prior dermatologic history is reported, and the cat is otherwise systemically well per owner account. Leading concern is contagious fungal dermatitis requiring confirmatory testing and household-wide management to limit further zoonotic and interspecies spread.",
       "differentials": [
         {
-          "condition": "Dermatophytosis (e.g., Microsporum canis)",
+          "condition": "Dermatophytosis (Microsporum canis or related)",
           "likelihood": "high",
           "supporting": [
-            "Round, well-demarcated alopecic scaly patches on face/ears (classic distribution)",
-            "Concurrent similar lesion in newly introduced kitten",
-            "Annular pruritic lesion in a human household contact, consistent with tinea corporis",
-            "Recent introduction of a new animal, common source of dermatophyte outbreaks",
-            "Outdoor access increasing exposure risk"
+            "Concurrent similar lesions in a recently introduced kitten",
+            "New itchy annular (ring-shaped) lesion in a human household member",
+            "Classic distribution on face/ears with alopecia and scaling in a young cat",
+            "Indoor/outdoor and multi-pet household increase exposure risk"
           ],
           "against": [
-            "No photo available to confirm morphology",
-            "Owner description not verified by exam"
+            "No photo or exam to confirm morphology, Wood's lamp or culture pending"
           ]
         },
         {
-          "condition": "Demodicosis (Demodex cati or gatoi)",
+          "condition": "Notoedric mange (Notoedres cati)",
           "likelihood": "low",
           "supporting": [
-            "Can cause facial/periocular alopecia and scaling in cats"
+            "Can cause crusting/scaling on face and ear margins",
+            "Occasionally weakly zoonotic causing transient pruritic lesions in humans"
           ],
           "against": [
-            "Does not explain zoonotic-appearing lesion in the child",
-            "Less commonly causes the classic round ring pattern seen here",
-            "No mention of pruritus in the cat"
+            "Less common in indoor/outdoor pet populations in many regions",
+            "Pattern of spread to multiple household pets and a human ring-shaped lesion is more classic for dermatophytosis"
           ]
         },
         {
-          "condition": "Notoedric mange (feline scabies)",
+          "condition": "Demodicosis (Demodex spp.)",
           "likelihood": "low",
           "supporting": [
-            "Can affect face/ears with crusting and alopecia",
-            "Zoonotic potential (transient pruritic lesions in humans)"
+            "Can cause localized alopecia and scaling on face"
           ],
           "against": [
-            "Typically markedly pruritic in cats, not reported here",
-            "Less commonly presents as discrete round patches"
+            "Not contagious/zoonotic, so would not explain kitten or human lesions",
+            "Typically less pruritic and not classically annular"
           ]
         },
         {
-          "condition": "Bacterial folliculitis/superficial pyoderma",
+          "condition": "Bacterial or allergic folliculitis/dermatitis",
           "likelihood": "low",
           "supporting": [
-            "Can cause focal alopecia and scaling"
+            "Scaling and alopecia can occur with secondary bacterial folliculitis"
           ],
           "against": [
-            "Does not account for multi-animal and human involvement",
-            "Less likely to produce the annular lesion described in the child"
+            "Does not explain simultaneous similar lesions in another cat and a human",
+            "Round, ring-like lesion pattern is atypical for uncomplicated allergic or bacterial disease"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
           "test": "Wood's lamp examination of affected areas",
-          "purpose": "Rapid in-clinic screening for apple-green fluorescence suggestive of Microsporum canis",
+          "purpose": "Rapid in-house screening for apple-green fluorescence suggestive of Microsporum canis infection.",
           "priority": "first-line"
         },
         {
-          "test": "Fungal culture (DTM) and/or dermatophyte PCR of hair/skin samples",
-          "purpose": "Confirm dermatophyte infection and identify causative organism",
+          "test": "Trichogram / hair pluck microscopy",
+          "purpose": "Immediate microscopic assessment for fungal spores/hyphae or ectoparasites on hair shafts.",
           "priority": "first-line"
         },
         {
-          "test": "Skin scraping and trichogram (hair pluck) microscopy",
-          "purpose": "Rule out concurrent ectoparasites (Demodex, Notoedres) and assess hair shaft invasion",
+          "test": "Superficial skin scraping",
+          "purpose": "Rule out Notoedres cati or Demodex as a cause or co-factor of the lesions.",
           "priority": "first-line"
         },
         {
-          "test": "Cytology of lesion margins",
-          "purpose": "Evaluate for secondary bacterial or yeast infection contributing to scaling/crusting",
-          "priority": "if indicated"
+          "test": "Fungal culture (dermatophyte test medium) and/or dermatophyte PCR",
+          "purpose": "Definitive confirmation and speciation of dermatophyte infection to guide treatment duration and zoonotic risk counseling.",
+          "priority": "first-line"
         },
         {
           "test": "Skin biopsy with histopathology",
-          "purpose": "Further characterize lesions if initial fungal testing is negative but clinical suspicion remains high",
+          "purpose": "Reserved for lesions not responding to standard antifungal therapy or atypical presentations.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Suspected zoonotic transmission has already occurred to a human household member (child)",
-        "Multiple in-contact animals affected, suggesting an active household outbreak",
-        "Outdoor access increases risk of environmental contamination and further spread"
+        "Zoonotic transmission suspected \\u2014 household child reportedly has a new itchy, ring-shaped skin lesion and should be evaluated by a physician",
+        "Multiple household pets affected, indicating likely index case (newly adopted kitten) and ongoing environmental contamination risk",
+        "Potential for rapid spread to other household members/pets if untreated and environment not decontaminated"
       ],
-      "clientCommunication": "Thank you for the detailed history — the pattern you're describing, especially with your new kitten having a similar patch and your daughter developing an itchy ring on her arm, makes us want to check your cat for a common fungal skin infection that can pass between pets and people. It's very treatable once confirmed, but we'd like to see your cat soon so we can run a couple of simple tests and get treatment started for all the pets in the home. In the meantime, try to limit close contact between the animals and family members, wash hands after handling either pet, and it would be a good idea to have your daughter's skin lesion checked by her pediatrician. We'll have a clearer picture after the exam and test results.",
+      "clientCommunication": "Thank you for the detailed history \\u2014 the pattern you're describing (round bald, scaly patches on your cat and kitten, plus your daughter's itchy ring-shaped rash) is most consistent with a common, treatable fungal skin infection that can spread between pets and people. We'd like to see your cat soon so we can run a couple of quick, painless tests to confirm this and start the right treatment. In the meantime, it's a good idea to keep the affected pets separated from other animals and family members where possible, wash your hands after handling them, and have your daughter's rash checked by her doctor. This condition is very manageable once identified, and early treatment helps everyone in the household recover faster.",
       "confidence": {
         "level": "moderate",
         "limitations": [
           "No physical examination performed",
-          "Photo was submitted but is not available for review",
-          "Owner-reported symptoms and lesion descriptions are unverified",
-          "No information on lesion pruritus level or duration in the cat"
+          "No photo available to characterize lesion morphology",
+          "Diagnosis based on owner-reported symptoms and secondary account of human lesion, not clinically verified"
         ]
       }
     },
@@ -406,208 +402,207 @@
     "pp-1005": {
       "triage": {
         "level": "urgent",
-        "rationale": "Marked unexplained weight loss (20% over the past year) with polyuria/polydipsia and recurrent vomiting in a senior cat warrants prompt bloodwork before he deteriorates further."
+        "rationale": "Significant weight loss with excessive thirst, urination, and vomiting in a senior cat suggests a metabolic disease (e.g., thyroid, kidney, or diabetes) that needs prompt bloodwork before it progresses to a crisis."
       },
-      "clinicalSummary": "12-year-old neutered male Persian cat with a 1-year history of ~20% body weight loss, polyphagia, polyuria/polydipsia, intermittent vomiting, and a greasy, unkempt haircoat with cessation of grooming. This constellation is classic for a senior-cat metabolic/endocrine disease, most notably hyperthyroidism, with diabetes mellitus and chronic kidney disease also on the differential list. No physical exam data (heart rate, thyroid palpation, hydration status, body condition score) or lab work is yet available to localize the primary process.",
+      "clinicalSummary": "12-year-old male neutered Persian cat with 20% body weight loss over the past year (4.5kg to 3.6kg), accompanied by polyphagia, polydipsia/polyuria, intermittent vomiting, and a greasy, poorly groomed coat. This symptom complex (weight loss despite good appetite, PU/PD, vomiting, coat neglect) is classic for feline hyperthyroidism, but overlaps significantly with diabetes mellitus and chronic kidney disease, which may coexist in a geriatric cat. Persian breed confers additional risk for polycystic kidney disease. No physical exam or diagnostics have yet been performed; the degree of dehydration, hydration status, and metabolic stability are unknown.",
       "differentials": [
         {
           "condition": "Hyperthyroidism",
           "likelihood": "high",
           "supporting": [
-            "Weight loss despite normal-to-increased appetite",
-            "Polyuria/polydipsia",
+            "Weight loss despite normal/increased appetite",
+            "Poor coat quality and cessation of grooming",
             "Vomiting",
-            "Poor coat quality/grooming neglect",
-            "Common in cats >10 years"
+            "Age (classic onset >10 years)"
           ],
           "against": [
-            "No reported palpable thyroid slip or tachycardia yet documented",
-            "Physical exam findings pending"
+            "PU/PD is not a primary feature though can occur secondary to increased GFR",
+            "No palpable thyroid nodule reported (exam pending)"
           ]
         },
         {
           "condition": "Diabetes mellitus",
           "likelihood": "moderate",
           "supporting": [
-            "Weight loss with polyphagia",
             "Polyuria/polydipsia",
-            "Vomiting could reflect ketosis if advanced"
+            "Weight loss with polyphagia",
+            "Vomiting (possible early ketosis)"
           ],
           "against": [
-            "Coat greasiness/grooming neglect less typical unless concurrent illness or obesity-related mobility issue"
+            "No mention of markedly increased urine volume/clumping specifics",
+            "Coat changes less typical for uncomplicated DM"
           ]
         },
         {
-          "condition": "Chronic kidney disease",
+          "condition": "Chronic kidney disease (including possible polycystic kidney disease given breed)",
           "likelihood": "moderate",
           "supporting": [
-            "Senior cat",
-            "Polyuria/polydipsia",
+            "PU/PD",
             "Weight loss",
             "Vomiting",
-            "Poor coat can occur with uremia/malaise"
+            "Persian breed predisposition to PKD",
+            "Senior age"
           ],
           "against": [
-            "Appetite reportedly increased rather than decreased, which is atypical for CKD"
+            "Owner reports good/increased appetite, whereas CKD more often causes hyporexia",
+            "No prior renal disease history reported"
           ]
         },
         {
-          "condition": "Gastrointestinal disease (e.g., inflammatory bowel disease or alimentary lymphoma)",
-          "likelihood": "low",
+          "condition": "Concurrent hyperthyroidism and chronic kidney disease",
+          "likelihood": "moderate",
           "supporting": [
-            "Chronic vomiting",
-            "Progressive weight loss"
+            "Both conditions are common and frequently co-occur in geriatric cats",
+            "Hyperthyroidism can mask underlying CKD by increasing GFR"
           ],
           "against": [
-            "Does not fully explain marked polydipsia/polyuria or coat changes"
+            "Cannot be confirmed without paired T4/renal panel and exam"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Serum chemistry panel, CBC, and total T4",
-          "purpose": "Core minimum database to differentiate hyperthyroidism, CKD, diabetes mellitus, and assess overall metabolic status.",
+          "test": "CBC, serum biochemistry panel (including electrolytes, BUN/creatinine, glucose), and urinalysis with USG",
+          "purpose": "Assess renal function, electrolyte status, glucose, hydration, and screen for diabetes or azotemia before metabolic decompensation",
           "priority": "first-line"
         },
         {
-          "test": "Urinalysis with urine specific gravity (ideally paired with chemistry)",
-          "purpose": "Assess renal concentrating ability and screen for glucosuria, evidence of infection, or proteinuria.",
+          "test": "Total T4",
+          "purpose": "Screen for hyperthyroidism, the leading differential given the clinical picture",
           "priority": "first-line"
         },
         {
           "test": "Systolic blood pressure measurement",
-          "purpose": "Screen for hypertension commonly associated with hyperthyroidism or CKD, which affects treatment urgency.",
-          "priority": "first-line"
-        },
-        {
-          "test": "Thorough physical exam including thyroid palpation and cardiac auscultation",
-          "purpose": "Identify palpable thyroid nodule, murmur, gallop, or arrhythmia that would refine differential and guide need for cardiac workup.",
+          "purpose": "Detect systemic hypertension associated with hyperthyroidism or CKD, which risks target-organ (ocular, renal, cardiac) damage",
           "priority": "first-line"
         },
         {
           "test": "Abdominal ultrasound",
-          "purpose": "Evaluate renal architecture, GI wall layering, and screen for neoplasia if initial bloodwork is inconclusive.",
+          "purpose": "Evaluate renal architecture for polycystic kidney disease (breed-associated risk) and screen for other organ abnormalities",
           "priority": "if indicated"
         },
         {
-          "test": "Fructosamine and repeat blood glucose curve",
-          "purpose": "Confirm diabetes mellitus if initial glucose is elevated or borderline.",
+          "test": "Free T4 by equilibrium dialysis",
+          "purpose": "Clarify thyroid status if total T4 is equivocal despite strong clinical suspicion",
           "priority": "if indicated"
         },
         {
-          "test": "Echocardiogram/ECG",
-          "purpose": "Further characterize cardiac changes if murmur, arrhythmia, or tachycardia identified on exam.",
+          "test": "Fructosamine or serial blood glucose curve",
+          "purpose": "Confirm diabetes mellitus if hyperglycemia/glucosuria found on initial panel",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "20% body weight loss over one year in a geriatric cat",
-        "Chronic vomiting with polyuria/polydipsia raising concern for metabolic derangement (thyrotoxicosis, diabetic ketosis, or uremia)",
-        "Cessation of grooming may indicate systemic malaise, pain, or advanced illness rather than primary dermatologic disease",
-        "No veterinary care in over 2 years, so baseline health status unknown"
+        "Substantial unintentional weight loss (~20% of body weight over one year) in a geriatric cat",
+        "Chronic vomiting several times weekly raising concern for dehydration or ketosis",
+        "No veterinary care in over 2 years, so baseline health status and disease progression are unknown",
+        "Combination of PU/PD with weight loss and polyphagia could indicate diabetes mellitus, with risk of progression to diabetic ketoacidosis if untreated",
+        "Persian breed at increased risk for polycystic kidney disease, which can progress silently"
       ],
-      "clientCommunication": "Thank you for sharing these details about your cat \\u2014 the weight loss, increased thirst, and coat changes you're seeing are important signs that we should look into soon. These symptoms can have several underlying causes, some of which are very treatable once we know what's going on, so I'd like to get him in for an exam and some bloodwork within the next day or two. In the meantime, please make sure he has easy access to fresh water and let us know right away if he becomes very lethargic, stops eating, or vomits repeatedly. We'll take great care of him and keep you updated every step of the way.",
+      "clientCommunication": "Thank you for the detailed description of your cat's symptoms — the weight loss, increased thirst, and change in his coat are important signs that we take seriously, especially given his age. These symptoms can be caused by a few different treatable conditions, most commonly involving the thyroid, kidneys, or blood sugar, but we'll need some bloodwork and a urine sample to know for sure. Please try to get him in for an exam and testing within the next day or two, and in the meantime keep an eye out for worsening vomiting, lethargy, or reluctance to eat. We're glad you reached out, and we'll work together to figure out what's going on.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical exam findings (vital signs, body condition score, thyroid palpation) available",
-          "Photo of the coat was not available for review despite being submitted",
-          "Owner-reported symptom frequency and severity are unverified",
-          "No prior lab work or medical history to compare trends against"
+          "No physical examination performed yet",
+          "No photo submitted to assess coat/skin condition directly",
+          "Owner-reported symptoms (appetite, urination frequency) are subjective and unverified",
+          "No prior bloodwork or baseline health data available for comparison"
         ]
       }
     },
     "pp-1006": {
       "triage": {
         "level": "routine",
-        "rationale": "Localized intertrigo/fold pyoderma in a brachycephalic breed is uncomfortable but not acute or life-threatening; can be scheduled within days."
+        "rationale": "Localized skin fold pyoderma/dermatitis in a brachycephalic breed is uncomfortable but not acutely dangerous; can be scheduled within routine timeframe."
       },
-      "clinicalSummary": "4-year-old spayed female French Bulldog with malodorous, erythematous, moist skin in the facial folds and perivulvar/tail-fold region, with associated facial pruritus (rubbing). History is consistent with intertriginous dermatitis (fold pyoderma), a common brachycephalic conformational issue often complicated by secondary bacterial and/or Malassezia overgrowth. No systemic signs reported (normal appetite, activity, no mention of pain, fever, or discharge elsewhere). Prior airway surgery indicates significant brachycephalic conformation, which is a predisposing factor for fold dermatitis.",
+      "clinicalSummary": "4-year-old spayed female French Bulldog with malodorous, erythematous, and moist skin in facial folds and perivulvar/tail fold region, with associated pruritus (facial rubbing). History is consistent with intertriginous (fold) pyoderma/dermatitis, a common issue in brachycephalic breeds with conformational skin folds. No systemic signs reported. Prior brachycephalic airway surgery noted but unrelated to current complaint.",
       "differentials": [
         {
-          "condition": "Facial/tail fold intertrigo with secondary bacterial pyoderma",
+          "condition": "Intertrigo (skin fold dermatitis) with secondary bacterial pyoderma",
           "likelihood": "high",
           "supporting": [
             "Malodor",
-            "Erythema and moisture in skin folds",
-            "Breed predisposition (brachycephalic screw-tail conformation)",
-            "Face rubbing suggesting pruritus/discomfort"
+            "Erythema and dampness in folds",
+            "Breed predisposition (screw tail, facial wrinkles)",
+            "Facial rubbing suggesting pruritus/discomfort"
           ],
           "against": []
         },
         {
-          "condition": "Malassezia dermatitis (yeast overgrowth) of folds",
+          "condition": "Malassezia (yeast) dermatitis of skin folds",
           "likelihood": "high",
           "supporting": [
-            "Characteristic odor often described as 'yeasty'",
-            "Moist, erythematous fold skin",
-            "Common comorbid finding with bacterial fold pyoderma in this breed"
+            "Odor is classic for Malassezia overgrowth",
+            "Moist, warm fold environment favors yeast proliferation",
+            "Common comorbid finding with bacterial fold pyoderma"
           ],
           "against": [
-            "Cannot distinguish from bacterial cause without cytology"
+            "Cannot differentiate from bacterial cause without cytology"
           ]
         },
         {
-          "condition": "Allergic dermatitis (atopic dermatitis or food allergy) with secondary fold infection",
+          "condition": "Allergic dermatitis (atopic or food-related) with secondary fold infection",
           "likelihood": "moderate",
           "supporting": [
-            "Facial rubbing may indicate pruritus beyond simple irritation",
-            "Recurrent fold disease can be a manifestation of underlying allergic skin disease"
+            "Facial rubbing may indicate pruritus beyond folds",
+            "Recurrent fold infections can be sequela of underlying allergy"
           ],
           "against": [
             "No mention of generalized pruritus, otitis, or seasonal pattern",
-            "History limited to fold regions only"
+            "Diet is standard commercial kibble without recent change reported"
           ]
         },
         {
-          "condition": "Contact or irritant dermatitis (e.g., from carpet fibers, cleaning products)",
+          "condition": "Demodicosis or dermatophytosis (less likely but differential for facial dermatitis)",
           "likelihood": "low",
           "supporting": [
-            "Rubbing face on carpet could indicate irritant exposure or be a symptom of pruritus"
+            "Facial involvement and rubbing could reflect deeper folliculitis"
           ],
           "against": [
-            "Bilateral fold and tail involvement together is more typical of conformational intertrigo than contact irritation"
+            "No alopecia, scaling, or crusting reported",
+            "Localized to folds rather than diffuse facial distribution",
+            "No mention of contagion to other pets/humans"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Skin surface cytology (tape strip/impression smear) of facial fold and tail fold lesions",
-          "purpose": "Identify presence and type of bacteria and/or Malassezia to guide targeted topical or systemic therapy",
+          "test": "Skin surface cytology (tape prep or direct impression) of face folds and tail fold",
+          "purpose": "Identify bacterial cocci, rods, and/or Malassezia to guide topical/systemic therapy choice.",
           "priority": "first-line"
         },
         {
-          "test": "Physical examination of fold depth, skin fold conformation, and screw-tail anatomy",
-          "purpose": "Assess severity, chronicity, and whether surgical fold correction (e.g., tail fold resection) may be warranted",
+          "test": "Physical exam with fold eversion and assessment of screw tail conformation",
+          "purpose": "Characterize severity, depth of involvement, and any anatomic component requiring surgical correction (e.g., tail fold resection).",
           "priority": "first-line"
         },
         {
-          "test": "Otoscopic examination and ear cytology",
-          "purpose": "Brachycephalic breeds with fold dermatitis often have concurrent otitis externa given shared predisposition to Malassezia/bacterial overgrowth",
+          "test": "Deep skin scraping if papules, pustules, or non-responsive lesions noted",
+          "purpose": "Rule out demodicosis if cytology or clinical picture is atypical.",
           "priority": "if indicated"
         },
         {
-          "test": "Bacterial culture and susceptibility of fold lesions",
-          "purpose": "Guide antibiotic choice if cytology suggests bacterial infection unresponsive to first-line topical/systemic therapy",
+          "test": "Fungal culture (dermatophyte test medium) or Wood's lamp",
+          "purpose": "Rule out dermatophytosis if lesions are atypical, non-responsive to standard therapy, or zoonotic concern arises.",
           "priority": "if indicated"
         },
         {
-          "test": "Intradermal or serum allergy testing / elimination diet trial",
-          "purpose": "Investigate underlying allergic disease if fold dermatitis is recurrent or fails to resolve with standard treatment",
+          "test": "Elimination diet trial and/or intradermal/serum allergy testing",
+          "purpose": "Investigate underlying allergic dermatitis if fold infections are recurrent or facial pruritus persists after treating current infection.",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [],
-      "clientCommunication": "Thank you for sending photos and details about your dog's skin folds — this sounds like it could be irritation and mild infection in the folds around her face and tail, which is quite common in French Bulldogs due to their wrinkly skin. It's not an emergency, but it will be more comfortable for her the sooner it's addressed, so let's get her in for an exam soon. The vet will likely take a quick, painless skin sample to check for bacteria or yeast and recommend cleaning and treatment tailored to what they find. In the meantime, try to keep the folds clean and dry, and avoid any new soaps or products on the areas until she's seen.",
+      "clientCommunication": "Thanks for the detailed description — it sounds like your pup may have some irritation and mild infection in her skin folds, which is quite common in French Bulldogs with their wrinkly faces and curly tails. We'll want to take a close look at the folds and possibly do a quick skin swab to see what's causing the odor and redness so we can choose the right treatment (often a cleanser and topical medication). This isn't usually an emergency, but keeping the area clean and dry until her visit can help with comfort. Please let us know if you notice her scratching excessively, developing sores, or acting unwell, and we'll get her seen sooner.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "Photo submitted by owner is not available for review, so severity, exudate character, and lesion morphology cannot be visually confirmed",
-          "No physical exam performed; findings based solely on owner description",
-          "Owner-reported symptoms may underrepresent pruritus, pain, or systemic signs",
-          "Unable to assess for concurrent otitis, ocular involvement, or generalized allergic skin disease"
+          "No physical exam performed",
+          "No photo submitted for visual confirmation of lesion appearance",
+          "Owner-reported symptoms may lack precision (e.g., degree of erythema, presence of discharge)",
+          "Cannot assess depth or extent of fold involvement without direct visualization"
         ]
       }
     },
@@ -715,21 +710,21 @@
     "pp-1008": {
       "triage": {
         "level": "routine",
-        "rationale": "Localized periocular/muzzle alopecia with only mild pruritus in an otherwise well young dog is not an emergency, but warrants prompt scheduling given shelter origin and zoonotic differentials."
+        "rationale": "Young dog with periocular/muzzle alopecia and mild pruritus is most consistent with demodicosis, a non-emergent but contagious-to-manage condition warranting scheduled workup."
       },
-      "clinicalSummary": "11-month-old intact male Beagle, 3 weeks post-shelter adoption, presenting with bilateral periocular and muzzle patchy alopecia and mild pruritus. No systemic signs reported. Differential is broad but the age, distribution, and mild pruritus are most consistent with localized juvenile demodicosis, with dermatophytosis and sarcoptic mange also plausible given recent shelter exposure. Physical exam and skin diagnostics are needed to confirm etiology and assess zoonotic risk.",
+      "clinicalSummary": "11-month-old intact male Beagle, recently adopted from a shelter, presents with bilateral periocular and muzzle alopecia with only mild pruritus. Young age, shelter origin, and localized facial distribution are classic for juvenile-onset demyelination pattern seen with Demodex canis. Dermatophytosis and other ectoparasites (Sarcoptes) remain differentials given shelter exposure and zoonotic/contagious potential. No systemic signs reported.",
       "differentials": [
         {
-          "condition": "Localized demodicosis (Demodex canis)",
+          "condition": "Demodicosis (Demodex canis)",
           "likelihood": "high",
           "supporting": [
-            "Young dog (<18 months) classic age for juvenile-onset demodicosis",
-            "Periocular and muzzle distribution is a hallmark presentation",
-            "Mild pruritus typical of uncomplicated demodicosis",
-            "Recent shelter stress can trigger immune-mediated mite proliferation"
+            "Young age (<1 year)",
+            "Periocular and muzzle distribution typical of localized demodicosis",
+            "Mild pruritus (demodicosis often minimally pruritic)",
+            "Shelter/stress background common trigger"
           ],
           "against": [
-            "No mention of comedones, erythema, or scaling in history (photo needed to assess)"
+            "No skin scraping results yet to confirm"
           ]
         },
         {
@@ -737,79 +732,79 @@
           "likelihood": "moderate",
           "supporting": [
             "Shelter origin increases exposure risk",
-            "Alopecia is a common presenting sign",
-            "Mild rather than intense pruritus is consistent"
+            "Facial distribution common site",
+            "Alopecia present"
           ],
           "against": [
-            "No mention of scaling, crusting, or circular lesion pattern",
-            "Periocular/muzzle-only distribution less typical than multifocal truncal lesions, though still possible"
+            "Pruritus usually minimal to absent, consistent here, but lesions less patchy/circular described",
+            "No mention of scaling or crusting"
           ]
         },
         {
           "condition": "Sarcoptic mange (Sarcoptes scabiei)",
-          "likelihood": "moderate",
+          "likelihood": "low",
           "supporting": [
-            "Shelter/kennel exposure history increases risk",
-            "Can affect face and periocular skin"
+            "Shelter exposure",
+            "Facial/periocular involvement can occur"
           ],
           "against": [
-            "Owner reports only mild itching; sarcoptic mange classically causes intense, often severe pruritus",
-            "Distribution more commonly involves ear margins, elbows, and ventrum"
+            "Pruritus typically intense/severe in sarcoptic mange, but only mild itching reported",
+            "No mention of ear pinna involvement or intense scratching"
           ]
         },
         {
-          "condition": "Secondary superficial bacterial folliculitis",
+          "condition": "Allergic or contact dermatitis",
           "likelihood": "low",
           "supporting": [
-            "Can accompany or complicate underlying demodicosis or dermatophytosis",
-            "May contribute to patchy hair loss"
+            "Mild pruritus",
+            "Recent environmental change (new home)"
           ],
           "against": [
-            "No pustules, crusting, or malodor reported",
-            "Likely secondary rather than primary process"
+            "Distribution less typical for allergic dermatitis (usually more generalized or ventral)",
+            "Alopecia pattern more consistent with parasitic/fungal cause"
           ]
         }
       ],
       "recommendedDiagnostics": [
         {
-          "test": "Deep skin scraping (multiple sites including periocular/muzzle)",
-          "purpose": "Detect Demodex mites, the leading differential given signalment and lesion distribution",
+          "test": "Deep and superficial skin scrapings (multiple sites)",
+          "purpose": "Confirm or rule out Demodex and Sarcoptes mites",
           "priority": "first-line"
         },
         {
-          "test": "Dermatophyte culture (DTM) \\u00b1 Wood's lamp screening",
-          "purpose": "Rule in/out dermatophytosis given shelter exposure and zoonotic/contagious risk to household members and other pets",
+          "test": "Dermatophyte culture (DTM) and/or Wood's lamp exam",
+          "purpose": "Evaluate for dermatophytosis given shelter exposure and zoonotic risk",
           "priority": "first-line"
         },
         {
-          "test": "Skin cytology (tape prep/impression smear)",
-          "purpose": "Assess for secondary bacterial or Malassezia infection influencing lesion appearance and pruritus",
+          "test": "Trichogram (hair pluck) for mites and hair shaft examination",
+          "purpose": "Supplement scrapings especially in periocular areas difficult to scrape deeply",
           "priority": "first-line"
         },
         {
-          "test": "Superficial skin scraping for Sarcoptes",
-          "purpose": "Evaluate for sarcoptic mange, though lower yield than deep scraping for Demodex",
+          "test": "Fecal flotation",
+          "purpose": "Reassess parasite status given prior roundworm treatment and shelter history",
           "priority": "if indicated"
         },
         {
-          "test": "Fecal flotation/exam",
-          "purpose": "Reassess parasite status given incomplete shelter deworming history and general health screening",
+          "test": "CBC/chemistry panel",
+          "purpose": "Baseline health screen if generalized demodicosis or systemic illness is suspected on follow-up",
           "priority": "if indicated"
         }
       ],
       "imageFindings": null,
       "redFlags": [
-        "Shelter origin raises possibility of dermatophytosis, which is zoonotic and contagious to other household pets and people",
-        "Partial vaccination status warrants review before scheduling any elective procedures"
+        "Shelter origin raises possibility of dermatophytosis, which is zoonotic and contagious to other household pets/humans",
+        "If lesions progress to generalized distribution or pododermatitis develops, this would indicate generalized demodicosis requiring more aggressive treatment and monitoring"
       ],
-      "clientCommunication": "Thanks for the detailed update on your new pup! Patchy hair loss around the eyes and muzzle in young dogs, especially those recently from a shelter, has a few common and very treatable causes, so we'll want to take a closer look with some simple skin tests at the visit. In the meantime, try to limit close face contact with him and wash your hands after petting him, just as a precaution until we know more. He doesn't need emergency care based on what you've described, but please schedule a visit within the next day or two so we can get him comfortable and check for anything contagious. Let us know if you notice increased itching, redness, spreading of the bald patches, or any changes in his energy or appetite before then.",
+      "clientCommunication": "Thanks for bringing in these details about your new pup's skin! Patchy hair loss around the eyes and muzzle with mild itching in a young dog is often caused by a small skin mite or, less commonly, a fungal skin infection—both very treatable once we identify the exact cause. We'll want to do a simple skin scraping and possibly a fungal test at his visit to pinpoint what's going on and get him started on the right treatment. In the meantime, try to limit close contact with other pets in the household just as a precaution until we know more.",
       "confidence": {
         "level": "moderate",
         "limitations": [
-          "No physical examination performed",
-          "Photo was submitted but not available for review, so lesion morphology (erythema, scaling, comedones, crusting) could not be assessed",
-          "Owner-reported pruritus severity is subjective and may not reflect true intensity",
-          "Shelter medical history is incomplete regarding prior skin disease or treatments"
+          "No photo submitted to visually assess lesion characteristics (scale, crusting, erythema)",
+          "No physical exam findings available (lesion borders, presence of comedones, secondary infection)",
+          "Owner-reported symptom severity may under- or overestimate pruritus",
+          "Shelter history incomplete regarding other animals' health status or known outbreaks"
         ]
       }
     }
