@@ -1,8 +1,10 @@
-// Photos live at public/cases/<case id>.jpg — replace a file with a real photo of the same name.
+// Case photos live in a private Blob store and are served through this app route.
 export function casePhotoPath(id: string) {
-  return `/cases/${id}.jpg`;
+  return `/vet/case/${id}/photo`;
 }
 
 export function formatAgo(minutes: number) {
-  return minutes < 60 ? `${minutes} min ago` : `${Math.floor(minutes / 60)} h ago`;
+  if (minutes < 60) return `${minutes} min ago`;
+  if (minutes < 48 * 60) return `${Math.floor(minutes / 60)} h ago`;
+  return `${Math.floor(minutes / (24 * 60))} d ago`;
 }

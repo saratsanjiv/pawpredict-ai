@@ -22,6 +22,25 @@ interface Props {
   onResult: (report: HealthReport, petName: string) => void;
 }
 
+// Shrinks the photo to at most 1600px and re-encodes it as JPEG in the browser. This keeps uploads
+// well under Vercel's 4.5MB request limit and drops the photo's metadata (including GPS).
+async function downscaleImage(file: File, maxSize = 1600): Promise<string> {
+  const url = URL.createObjectURL(file);
+  try {
+    const img = new Image();
+    img.src = url;
+    await img.decode();
+    const scale = Math.min(1, maxSize / Math.max(img.naturalWidth, img.naturalHeight));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(img.naturalWidth * scale);
+    canvas.height = Math.round(img.naturalHeight * scale);
+    canvas.getContext("2d")!.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL("image/jpeg", 0.85);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
 export default function HealthForm({ onResult }: Props) {
   const [petType, setPetType] = useState<"dog" | "cat">("dog");
   const [selectedSymptoms, setSelectedSymptoms] = useState<Set<string>>(new Set());
@@ -40,20 +59,21 @@ export default function HealthForm({ onResult }: Props) {
     });
   };
 
-  const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 4_000_000) {
-      setError("Image must be under 4MB.");
+    if (file.size > 20_000_000) {
+      setError("Image must be under 20MB.");
       return;
     }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const result = ev.target?.result as string;
-      setImagePreview(result);
-      setImageBase64(result.split(",")[1]);
-    };
-    reader.readAsDataURL(file);
+    try {
+      const dataUrl = await downscaleImage(file);
+      setError(null);
+      setImagePreview(dataUrl);
+      setImageBase64(dataUrl.split(",")[1]);
+    } catch {
+      setError("Couldn't read that image. Please try a JPG or PNG.");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -80,6 +100,10 @@ export default function HealthForm({ onResult }: Props) {
       symptoms: Array.from(selectedSymptoms),
       otherSymptoms: otherChecked ? get("otherSymptoms") : "",
       imageBase64: imageBase64 ?? undefined,
+      ownerName: get("ownerName"),
+      chiefComplaint: get("chiefComplaint"),
+      ownerNotes: get("ownerNotes"),
+      photoRegion: imageBase64 ? get("photoRegion") : undefined,
     };
 
     try {
@@ -143,6 +167,7 @@ export default function HealthForm({ onResult }: Props) {
       <SectionLabel num="01" title="Basic Information" />
       <Card>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <Field label="Your Name"><input name="ownerName" type="text" placeholder="e.g. Jamie Smith" maxLength={80} required /></Field>
           <Field label="Pet's Name"><input name="name" type="text" placeholder="e.g. Buddy" maxLength={50} /></Field>
           <Field label="Breed"><input name="breed" type="text" placeholder="e.g. Golden Retriever" maxLength={100} /></Field>
           <Field label="Age">
@@ -190,6 +215,9 @@ export default function HealthForm({ onResult }: Props) {
       {/* 02 Symptoms */}
       <SectionLabel num="02" title="Current Symptoms" />
       <Card>
+        <Field label="What's the main concern?" style={{ marginBottom: 14 }}>
+          <input name="chiefComplaint" type="text" placeholder="e.g. Red, itchy patch on her belly" maxLength={200} required />
+        </Field>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 7 }}>
           {SYMPTOMS.map((s) => (
             <SymptomChip
@@ -215,6 +243,9 @@ export default function HealthForm({ onResult }: Props) {
             style={{ marginTop: 10 }}
           />
         )}
+        <Field label="Anything else we should know?" style={{ marginTop: 14 }}>
+          <textarea name="ownerNotes" placeholder="When it started, whether it's getting worse, anything that seems to help… (optional)" maxLength={1000} />
+        </Field>
       </Card>
 
       {/* 03 Lifestyle */}
@@ -285,7 +316,7 @@ export default function HealthForm({ onResult }: Props) {
             {imagePreview ? "Photo uploaded ✓" : "Upload a photo of your pet's coat or skin"}
           </div>
           <div style={{ fontSize: "0.75rem", color: "var(--text3)" }}>
-            Optional but improves accuracy · JPG or PNG · Max 4MB
+            Optional but improves accuracy · JPG or PNG
           </div>
           {imagePreview && (
             <img src={imagePreview} alt="Preview" style={{
@@ -296,6 +327,11 @@ export default function HealthForm({ onResult }: Props) {
           )}
           <input ref={fileRef} type="file" accept="image/jpeg,image/png" onChange={handleImage} style={{ display: "none" }} />
         </div>
+        {imagePreview && (
+          <Field label="Where on the body is this?" style={{ marginTop: 14 }}>
+            <input name="photoRegion" type="text" placeholder="e.g. Belly, left ear, right side of chest" maxLength={80} required />
+          </Field>
+        )}
       </Card>
 
       <button

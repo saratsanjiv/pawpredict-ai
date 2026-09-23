@@ -2,15 +2,20 @@ import CaseTable from "@/components/vet/CaseTable";
 import { TRIAGE_STYLES } from "@/components/vet/TriageBadge";
 import { getSortedCases } from "@/lib/vet/cases";
 
-export default function VetDashboard() {
-  const cases = getSortedCases();
+// Reads the live queue on every request; a static render would never show new submissions.
+export const dynamic = "force-dynamic";
+
+export default async function VetDashboard() {
+  const cases = await getSortedCases();
   const count = (level: "emergency" | "urgent" | "routine") =>
-    cases.filter((c) => c.assessment.triage.level === level).length;
+    cases.filter((c) => c.assessment?.triage.level === level).length;
 
   const newCount = cases.filter((c) => c.status === "new").length;
+  const unassessed = cases.filter((c) => !c.assessment).length;
+  const queueSub = `${newCount} new · ${cases.length - newCount} reviewed${unassessed ? ` · ${unassessed} awaiting AI` : ""}`;
 
   const stats: { label: string; value: number; color: string; sub?: string }[] = [
-    { label: "Cases in queue", value: cases.length, color: "var(--text)", sub: `${newCount} new · ${cases.length - newCount} reviewed` },
+    { label: "Cases in queue", value: cases.length, color: "var(--text)", sub: queueSub },
     { label: "Emergency", value: count("emergency"), color: TRIAGE_STYLES.emergency.color },
     { label: "Urgent", value: count("urgent"), color: TRIAGE_STYLES.urgent.color },
     { label: "Routine", value: count("routine"), color: TRIAGE_STYLES.routine.color },

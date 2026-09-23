@@ -3,7 +3,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod/v4";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { getCase } from "@/lib/vet/cases";
-import { assessCase, AssessmentError } from "@/lib/vet/assess";
+import { reassessCase, AssessmentError } from "@/lib/vet/assess";
 
 export const maxDuration = 120;
 
@@ -30,14 +30,15 @@ export async function POST(req: NextRequest) {
   }
 
   const parsed = RequestSchema.safeParse(body);
-  const vetCase = parsed.success ? getCase(parsed.data.caseId) : undefined;
+  const vetCase = parsed.success ? await getCase(parsed.data.caseId) : undefined;
   if (!vetCase) {
     return NextResponse.json({ error: "Case not found." }, { status: 404 });
   }
 
   try {
-    const { assessment } = await assessCase(vetCase);
-    return NextResponse.json(assessment);
+    // Saved only when the case has no assessment yet; otherwise returned as an unsaved live result.
+    const { assessment, saved } = await reassessCase(vetCase);
+    return NextResponse.json({ assessment, saved });
   } catch (err) {
     console.error("[PawPredict vet assess error]", err);
 

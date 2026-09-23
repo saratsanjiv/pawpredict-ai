@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { TriageLevel, VetCase } from "@/lib/vet/schema";
 import { casePhotoPath, formatAgo } from "@/lib/vet/format";
-import TriageBadge from "./TriageBadge";
+import TriageBadge, { UnassessedBadge } from "./TriageBadge";
 
 const COLUMNS = "130px minmax(230px, 1.2fr) minmax(240px, 2fr) 100px 96px";
 
@@ -18,7 +18,7 @@ export default function CaseTable({ cases }: { cases: VetCase[] }) {
 
   const visible = cases.filter(
     (c) =>
-      (triage === "all" || c.assessment.triage.level === triage) &&
+      (triage === "all" || c.assessment?.triage.level === triage) &&
       (species === "all" || c.patient.species === species)
   );
 
@@ -67,13 +67,18 @@ export default function CaseTable({ cases }: { cases: VetCase[] }) {
                 textDecoration: "none", color: "inherit"
               }}
             >
-              <span><TriageBadge level={c.assessment.triage.level} /></span>
+              <span>
+                {c.assessment
+                  ? <TriageBadge level={c.assessment.triage.level} />
+                  : <UnassessedBadge failed={c.assessmentStatus === "failed"} />}
+              </span>
 
               <span style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
                 {c.photo ? (
+                  // unoptimized: the optimizer would keep its own cached copy of a private photo
                   <Image
                     src={casePhotoPath(c.id)} alt={`${c.patient.name}: ${c.photo.region}`}
-                    width={44} height={44}
+                    width={44} height={44} unoptimized
                     style={{ borderRadius: 10, objectFit: "cover", flexShrink: 0, border: "1px solid var(--border2)" }}
                   />
                 ) : (

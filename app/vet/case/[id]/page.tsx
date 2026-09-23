@@ -4,21 +4,23 @@ import type { Metadata } from "next";
 import { Panel } from "@/components/Panel";
 import PatientHeader from "@/components/vet/PatientHeader";
 import LiveAssessment from "@/components/vet/LiveAssessment";
-import { ASSESSMENT_META, CASES, getCase } from "@/lib/vet/cases";
+import { getCase } from "@/lib/vet/cases";
 import { casePhotoPath } from "@/lib/vet/format";
+import type { VetCase } from "@/lib/vet/schema";
 import { MODEL } from "@/lib/anthropic";
 
-const storedSource = ASSESSMENT_META.generatedAt
-  ? `${ASSESSMENT_META.model}, generated ${new Date(ASSESSMENT_META.generatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`
-  : ASSESSMENT_META.model;
+export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  return CASES.map((c) => ({ id: c.id }));
+function storedSource(c: VetCase) {
+  if (!c.assessmentModel) return null;
+  if (!c.assessedAt) return c.assessmentModel;
+  const date = new Date(c.assessedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return `${c.assessmentModel}, generated ${date}`;
 }
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const params = await props.params;
-  const c = getCase(params.id);
+  const c = await getCase(params.id);
   return { title: c ? `${c.patient.name} (${c.id.toUpperCase()}) — PawPredict Vet` : "Case not found — PawPredict Vet" };
 }
 
@@ -26,7 +28,7 @@ const body = { fontSize: "0.86rem", color: "var(--text2)", lineHeight: 1.7 } as 
 
 export default async function CasePage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const c = getCase(params.id);
+  const c = await getCase(params.id);
   if (!c) notFound();
 
   const history: [string, string][] = [
@@ -49,12 +51,16 @@ export default async function CasePage(props: { params: Promise<{ id: string }> 
 
           {c.photo ? (
             <div style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: "var(--r)", overflow: "hidden", marginBottom: "0.8rem" }}>
+              {/* unoptimized: the optimizer would keep its own cached copy of a private photo */}
               <Image
                 src={casePhotoPath(c.id)} alt={`${c.patient.name}: ${c.photo.region}`}
-                width={1200} height={900} priority
+                width={1200} height={900} priority unoptimized
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
-              <div style={{ padding: "0.6rem 1rem", fontSize: "0.75rem", color: "var(--text3)" }}>📷 {c.photo.region}</div>
+              <div style={{ padding: "0.6rem 1rem", fontSize: "0.75rem", color: "var(--text3)" }}>
+                📷 {c.photo.region}
+                {c.photo.credit && <div style={{ fontSize: "0.68rem", marginTop: 3 }}>{c.photo.credit}</div>}
+              </div>
             </div>
           ) : (
             <div style={{
@@ -94,8 +100,9 @@ export default async function CasePage(props: { params: Promise<{ id: string }> 
         <LiveAssessment
           caseId={c.id}
           initial={c.assessment}
+          initialStatus={c.assessmentStatus}
           hasPhoto={c.photo !== null}
-          storedSource={storedSource}
+          storedSource={storedSource(c)}
           liveModel={MODEL}
         />
       </div>

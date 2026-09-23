@@ -1,12 +1,37 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { anthropic, MODEL } from "@/lib/anthropic";
 import { checkRateLimit } from "@/lib/rateLimit";
-import { sanitizeText, sanitizeSymptoms, validateImage } from "@/lib/sanitize";
+import { cleanText, sanitizeText, sanitizeSymptoms, validateImage } from "@/lib/sanitize";
 import { AnalyzeRequestSchema, HealthReportSchema } from "@/lib/validation";
+import { assessNewCase } from "@/lib/vet/assess";
+import { insertCase, reserveCaseId } from "@/lib/vet/cases";
+import { uploadCasePhoto } from "@/lib/vet/photos";
+import type { CaseIntake } from "@/lib/vet/schema";
 
 export const maxDuration = 120;
+
+// Saves the submission to the vet queue. Returns the case ID, or null if it couldn't be saved —
+// the owner still gets their report either way.
+async function saveSubmission(intake: CaseIntake, image: Buffer | null): Promise<string | null> {
+  try {
+    const id = await reserveCaseId();
+    let photoPathname: string | null = null;
+    if (image) {
+      try {
+        photoPathname = await uploadCasePhoto(id, image);
+      } catch (err) {
+        console.error(`[PawPredict] photo upload failed for ${id}; saving case without it`, err);
+      }
+    }
+    await insertCase(id, photoPathname ? intake : { ...intake, photo: null }, photoPathname);
+    return id;
+  } catch (err) {
+    console.error("[PawPredict] failed to save submission", err);
+    return null;
+  }
+}
 
 // ─── CORS helper — only allow requests from our own origin ────────────────────
 function getCorsHeaders(req: NextRequest) {
@@ -98,8 +123,37 @@ export async function POST(req: NextRequest) {
 
   // ── 4. Validate image (optional) ────────────────────────────────────────────
   const imageResult = data.imageBase64 ? validateImage(data.imageBase64) : null;
+  const hasPhoto = Boolean(imageResult?.valid && imageResult.data);
 
-  // ── 5. Build AI prompt ──────────────────────────────────────────────────────
+  // ── 5. Save to the vet queue (runs alongside the owner report) ───────────────
+  const notSpecified = (value: unknown, max: number) => cleanText(value, max) || "Not specified";
+  const storedOther = cleanText(data.otherSymptoms, 300);
+  const intake: CaseIntake = {
+    patient: {
+      name: cleanText(data.name, 50) || "Unnamed",
+      species: data.petType,
+      breed: notSpecified(data.breed, 100),
+      age: notSpecified(data.age, 60),
+      sex: notSpecified(data.sex, 30),
+      weight: notSpecified(data.weight, 40),
+    },
+    ownerName: cleanText(data.ownerName, 80),
+    chiefComplaint: cleanText(data.chiefComplaint, 200),
+    symptoms: [...sanitizeSymptoms(data.symptoms ?? []), ...(storedOther ? [`Other: ${storedOther}`] : [])],
+    ownerNotes: cleanText(data.ownerNotes, 1000),
+    history: {
+      diet: notSpecified(data.diet, 60),
+      environment: notSpecified(data.environment, 40),
+      vaccines: notSpecified(data.vaccines, 40),
+      lastVet: notSpecified(data.lastVet, 40),
+      medicalHistory: cleanText(data.medicalHistory, 500) || "None reported.",
+      exercise: notSpecified(data.exercise, 80),
+    },
+    photo: hasPhoto ? { region: notSpecified(data.photoRegion, 80) } : null,
+  };
+  const savedCase = saveSubmission(intake, hasPhoto ? Buffer.from(imageResult!.data!, "base64") : null);
+
+  // ── 6. Build owner-report prompt ────────────────────────────────────────────
   const systemPrompt = `You are PawPredict AI, a warm and expert veterinary health assessment AI.
 Analyze the provided pet data and fill in the health report. Field guidance:
 {
@@ -155,7 +209,21 @@ ${imageResult?.valid ? "Coat/skin photo: provided above — please analyze it." 
 Generate the health risk report JSON.`,
   });
 
-  // ── 6. Call Anthropic API (server-side — key never exposed) ─────────────────
+  // ── 7. Owner report (Anthropic API, server-side — key never exposed) ────────
+  const response = await ownerReportResponse(systemPrompt, userContent, corsHeaders, remaining);
+
+  // ── 8. Vet assessment runs after the response is sent, so the owner doesn't wait for it
+  const caseId = await savedCase;
+  if (caseId) after(() => assessNewCase(caseId));
+  return response;
+}
+
+async function ownerReportResponse(
+  systemPrompt: string,
+  userContent: Anthropic.MessageParam["content"],
+  corsHeaders: Record<string, string>,
+  remaining: number
+): Promise<NextResponse> {
   try {
     // parse() validates the response against HealthReportSchema and throws if it doesn't match
     const message = await anthropic.messages.parse({

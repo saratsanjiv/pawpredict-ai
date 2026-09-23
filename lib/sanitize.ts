@@ -14,6 +14,17 @@ export function sanitizeText(input: unknown, maxLength = 500): string {
     .slice(0, maxLength);
 }
 
+// For text that's stored and shown to vets. React escapes it on render, so unlike sanitizeText
+// this keeps apostrophes and quotes ("won't" stays "won't"); it only drops control characters.
+export function cleanText(input: unknown, maxLength = 500): string {
+  if (typeof input !== "string") return "";
+  return input
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+    .slice(0, maxLength);
+}
+
 // Validate that a value is one of an allowed set
 export function sanitizeEnum<T extends string>(
   input: unknown,

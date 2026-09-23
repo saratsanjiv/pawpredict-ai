@@ -1,22 +1,24 @@
-// Regenerates the stored sample assessments in lib/vet/assessments.json with the live model.
+// Regenerates the sample assessments in scripts/seed/assessments.json with the live model.
+// Run `npm run db:setup` afterwards to push them to the database.
 // Usage: npm run regen:assessments            (all cases)
 //        npm run regen:assessments -- pp-1003 (specific cases)
 import fs from "fs";
 import path from "path";
 import { MODEL } from "@/lib/anthropic";
-import { CASE_INTAKES } from "@/lib/vet/cases";
 import { assessCase } from "@/lib/vet/assess";
+import { SAMPLE_CASES } from "./seed/sample-cases";
 
 // USD per million tokens for claude-sonnet-5; check current pricing before relying on the estimate.
 const PRICE_PER_MTOK = { input: 2, output: 10 };
 
-const FILE = path.join(process.cwd(), "lib", "vet", "assessments.json");
+const SEED_DIR = path.join(process.cwd(), "scripts", "seed");
+const FILE = path.join(SEED_DIR, "assessments.json");
 
 async function main() {
   const requested = process.argv.slice(2);
-  const unknown = requested.filter((id) => !CASE_INTAKES.some((c) => c.id === id));
+  const unknown = requested.filter((id) => !SAMPLE_CASES.some((c) => c.id === id));
   if (unknown.length) throw new Error(`Unknown case id(s): ${unknown.join(", ")}`);
-  const targets = requested.length ? CASE_INTAKES.filter((c) => requested.includes(c.id)) : CASE_INTAKES;
+  const targets = requested.length ? SAMPLE_CASES.filter((c) => requested.includes(c.id)) : SAMPLE_CASES;
 
   const stored = JSON.parse(fs.readFileSync(FILE, "utf8"));
   const totals = { input: 0, output: 0 };
@@ -28,7 +30,8 @@ async function main() {
   for (const c of targets) {
     const t0 = Date.now();
     try {
-      const { assessment, usage } = await assessCase(c);
+      const photo = c.photo ? fs.readFileSync(path.join(SEED_DIR, "photos", `${c.id}.jpg`)) : null;
+      const { assessment, usage } = await assessCase(c, photo);
       stored.assessments[c.id] = assessment;
       totals.input += usage.input_tokens;
       totals.output += usage.output_tokens;
@@ -56,7 +59,7 @@ async function main() {
   stored.model = MODEL;
   stored.generatedAt = new Date().toISOString();
   fs.writeFileSync(FILE, JSON.stringify(stored, null, 2) + "\n");
-  console.log(`Saved to ${path.relative(process.cwd(), FILE)}`);
+  console.log(`Saved to ${path.relative(process.cwd(), FILE)}. Run \`npm run db:setup\` to push to the database.`);
 }
 
 main().catch((err) => {

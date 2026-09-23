@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { VetCase } from "@/lib/vet/schema";
 import { formatAgo } from "@/lib/vet/format";
-import TriageBadge from "./TriageBadge";
+import TriageBadge, { UnassessedBadge } from "./TriageBadge";
 
 export default function PatientHeader({ c }: { c: VetCase }) {
   const { patient } = c;
@@ -16,7 +16,9 @@ export default function PatientHeader({ c }: { c: VetCase }) {
         <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "2rem", fontWeight: 400, lineHeight: 1.1 }}>
           {patient.name}
         </h1>
-        <TriageBadge level={c.assessment.triage.level} large />
+        {c.assessment
+          ? <TriageBadge level={c.assessment.triage.level} large />
+          : <UnassessedBadge failed={c.assessmentStatus === "failed"} large />}
       </div>
 
       <div style={{ fontSize: "0.9rem", color: "var(--text2)", marginBottom: "0.3rem" }}>

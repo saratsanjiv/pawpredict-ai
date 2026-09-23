@@ -37,10 +37,10 @@ export const VetAssessmentSchema = z.object({
 
 export type VetAssessment = z.infer<typeof VetAssessmentSchema>;
 
+export type AssessmentStatus = "pending" | "done" | "failed";
+
+// What the owner submitted — everything the AI assessment is based on.
 export interface CaseIntake {
-  id: string;
-  minutesAgo: number;
-  status: "new" | "reviewed";
   patient: {
     name: string;
     species: "dog" | "cat";
@@ -59,10 +59,18 @@ export interface CaseIntake {
     vaccines: string;
     lastVet: string;
     medicalHistory: string;
+    exercise?: string;
   };
   photo: { region: string } | null;
 }
 
 export interface VetCase extends CaseIntake {
-  assessment: VetAssessment;
+  id: string;
+  minutesAgo: number;
+  status: "new" | "reviewed";
+  photo: { region: string; credit: string | null } | null;
+  assessment: VetAssessment | null;
+  assessmentStatus: AssessmentStatus;
+  assessmentModel: string | null;
+  assessedAt: string | null;
 }

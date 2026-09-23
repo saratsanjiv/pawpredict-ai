@@ -15,6 +15,11 @@ export const AnalyzeRequestSchema = z.object({
   medicalHistory: z.string().max(500).optional(),
   symptoms: z.array(z.string().max(100)).max(15).optional(),
   otherSymptoms: z.string().max(300).optional(),
+  // Owner submission fields for the vet queue
+  ownerName: z.string().trim().min(1).max(80),
+  chiefComplaint: z.string().trim().min(1).max(200),
+  ownerNotes: z.string().max(1000).optional(),
+  photoRegion: z.string().max(80).optional(),
   // image is validated separately due to size
   imageBase64: z.string().max(5_600_000).optional(),
 });

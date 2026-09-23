@@ -26,7 +26,23 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 Get your key at: https://console.anthropic.com/
 
-### 3. Run the dev server
+### 3. Set up the database
+
+Owner submissions are stored in Neon Postgres, with photos in a private Vercel Blob store.
+This creates the table and seeds the 8 sample vet cases (safe to re-run; it also refreshes
+their "submitted X ago" times):
+
+```bash
+npm run db:setup
+```
+
+Before a demo, clear out test submissions (deletes every non-sample case and its photo):
+
+```bash
+npm run db:setup -- --reset
+```
+
+### 4. Run the dev server
 
 ```bash
 npm run dev
