@@ -16,14 +16,16 @@ export function generateStaticParams() {
   return CASES.map((c) => ({ id: c.id }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const c = getCase(params.id);
   return { title: c ? `${c.patient.name} (${c.id.toUpperCase()}) — PawPredict Vet` : "Case not found — PawPredict Vet" };
 }
 
 const body = { fontSize: "0.86rem", color: "var(--text2)", lineHeight: 1.7 } as const;
 
-export default function CasePage({ params }: { params: { id: string } }) {
+export default async function CasePage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const c = getCase(params.id);
   if (!c) notFound();
 
